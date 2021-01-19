@@ -29,6 +29,8 @@
                                 <div class="form-group">
                                     <input type="password" class="form-control" placeholder="**********" id="pass">
                                 </div>
+
+                                <!-- submit -->
                                 <input id="sub" type="submit" class="btn btn-dark login-btn mb-2" value="Đăng Nhập">
                                 
                                 <button class="btn btn-primary"><a href="#" class="text-white">
@@ -56,8 +58,30 @@
             </div>
         </div>
     </div>
-    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
+
+    <script>
+       $(function(){
+           $("#sub").click(function() {
+                const axios = require('axios')
+                const onClick = async (user, pass) => {
+                
+                const response = await axios.post('localhost:8080/user/login', {
+                    userEmail: user,
+                    pass: pass
+                })
+                if (response.code  === 200 ) {
+
+                } else {
+
+                }
+                }
+           })
+       })
+    </script>
+   
     <script></script>
 </body>
 </html>
