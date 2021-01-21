@@ -13,6 +13,7 @@
     <div class="page">
 
       <div class="sentences">
+
         <div class="sentence">
           <div class="question">
             <p id="question" class="question__text">[Unit test]
@@ -21,11 +22,19 @@
               Vậy có cách nào để viết được unit test cover hết các case k ạ ???</p>
           </div>
           <div class="answer">
-            <p id="answer" class="answer__text">Ông này xàm ai cũng biết, nhưng ad có cần phải kiểu lật mặt vậy ko, lúc
-              còn lợi dụng được người ta câu view thì tạo điều kiện duyệt mấy bài của ông này, còn bênh ông này nữa, tới
-              lúc thấy hết giá trị thì đem ngta ra làm trò cười, ông này xàm 1 thì admin cũng chả ra gì. Tốt nhất là
-              admin
-              nên im luôn đi</p>
+            <div class="answer__container">
+              <img src="assets/images/register.jpg" alt="anhbacsi" class="answer__img">
+            </div>
+            <div class="answer_info">
+              <p class="answer__name">Bac si ka</p>
+              <p id="answer" class="answer__text">Ông này xàm ai cũng biết, nhưng ad có cần phải kiểu lật mặt vậy ko,
+                lúc
+                còn lợi dụng được người ta câu view thì tạo điều kiện duyệt mấy bài của ông này, còn bênh ông này nữa,
+                tới
+                lúc thấy hết giá trị thì đem ngta ra làm trò cười, ông này xàm 1 thì admin cũng chả ra gì. Tốt nhất là
+                admin
+                nên im luôn đi</p>
+            </div>
           </div>
         </div>
 
@@ -55,11 +64,20 @@
       </div>
 
       <div class="category">
-        <h3>danh muc cau hoi</h3>
+        <h2>Loai hoi</h2>
+        <div class="category__list">
+          <span class="category__item">Da lieu</span>
+          <span class="category__item">Xuong khop</span>
+          <span class="category__item">Dong y</span>
+          <span class="category__item">Tay hoc</span>
+          <span class="category__item">Dong y</span>
+          <span class="category__item">Tay hoc</span>
+        </div>
       </div>
 
     </div>
   </main>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="js/api/listquestion.js"></script>
 </html>

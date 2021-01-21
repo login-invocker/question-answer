@@ -6,6 +6,7 @@ body {
   width: 1200px;
   margin: 0 auto;
   display: flex;
+  justify-content: space-between;
 }
 
 .sentence{
@@ -20,6 +21,7 @@ body {
 .question__text{
   font-size: 19px;
   font-weight: 600;
+  margin-top: 3px;
 }
 
 .answer__container {
@@ -54,4 +56,22 @@ body {
 .answer__text {
   font-size: 17px;
   margin: 5px 0px;
+}
+
+.category {
+  width: 400px;
+}
+
+.category__item {
+  background-color: blue;
+  padding: 4px 10px;
+  color: #FFFFFF;
+  border-radius:15px;
+  font-size: 18px;
+  margin: 0px 5px 5px 0px;
+}
+
+.category__list {
+  display: flex;
+  flex-wrap: wrap;
 }
