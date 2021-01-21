@@ -33,8 +33,10 @@
                                 <input type="file" class="box-shadow form-control-file border" id="formFileMedia" >
                             </div>
                             <div id="note" class="mb-3">* Hình ảnh cá nhân của bạn hoàn toàn được bảo mật, chỉ bác sĩ mới có thể xem.</div>
-                            <input id="formSubmit" style="width: 100%;" type="submit" class="btn btn-primary block mt-3" value="Đặt câu hỏi">
                         </form>
+                        <button onclick="addQuestion()">Đặt câu hỏi</button>
+
+                        <!-- <input id="formSubmit" style="width: 100%;" type="submit" class="btn btn-primary block mt-3" value="Đặt câu hỏi" onclick="addQuestion()"> -->
                     </div>
                 </div>
             </div>
@@ -95,6 +97,10 @@
             </div>
         </div>
     </div>
+    <!-- <script src="./vendors/axios.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./config/config.js"></script>
     <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
+    <script src="./service/question-service.js"></script>
 </body>
 </html>

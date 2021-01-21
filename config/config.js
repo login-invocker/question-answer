@@ -1,0 +1,1 @@
+const apiURLDoctorServer = `http://localhost:8080/`
