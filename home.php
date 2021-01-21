@@ -10,6 +10,9 @@
 <body>
     <h1>home</h1>
 <a href="/front-end-question-answer /question.php">question</a>
+<a href="/front-end-question-answer /login.php">login</a>
+<a href="/front-end-question-answer /register.php">register</a>
+
     <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
     <script>
 

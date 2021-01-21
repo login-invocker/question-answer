@@ -69,7 +69,6 @@
         //    })
            let user = document.getElementById("email").value
                 let pass = document.getElementById("pass").value
-                const axios = require('axios')
                 const onClick = async (user, pass) => {
                 
                 const response = await axios.post('http://127.0.0.1:5500/home.html', {
