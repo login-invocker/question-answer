@@ -49,3 +49,15 @@ const getOneSpecialist = async () => {
     });
     console.log(data)
 }
+
+const updateOneSpecialist = async () => {
+
+    const speacialist = {"id": "600a6a524130db0ecc1bcdf7", "name": "kho  hoc vien tuong"}
+    const { data } = await api({
+        method: 'put',
+        url: "/specialist",
+        data: speacialist,
+        headers
+    });
+    console.log("data:",data)
+}
