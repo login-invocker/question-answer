@@ -12,55 +12,7 @@
   <main>
     <div class="page">
 
-      <div class="sentences">
-
-        <div class="sentence">
-          <div class="question">
-            <p id="question" class="question__text">[Unit test]
-              Hi ae, mình có case như hình. Logic là lấy ngày hiện tại, rồi check T2, T3, T4, ..., CN thì sẽ có logic
-              tương ứng.
-              Vậy có cách nào để viết được unit test cover hết các case k ạ ???</p>
-          </div>
-          <div class="answer">
-            <div class="answer__container">
-              <img src="assets/images/register.jpg" alt="anhbacsi" class="answer__img">
-            </div>
-            <div class="answer_info">
-              <p class="answer__name">Bac si ka</p>
-              <p id="answer" class="answer__text">Ông này xàm ai cũng biết, nhưng ad có cần phải kiểu lật mặt vậy ko,
-                lúc
-                còn lợi dụng được người ta câu view thì tạo điều kiện duyệt mấy bài của ông này, còn bênh ông này nữa,
-                tới
-                lúc thấy hết giá trị thì đem ngta ra làm trò cười, ông này xàm 1 thì admin cũng chả ra gì. Tốt nhất là
-                admin
-                nên im luôn đi</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="sentence">
-          <div class="question">
-            <p id="question" class="question__text">[Unit test]
-              Hi ae, mình có case như hình. Logic là lấy ngày hiện tại, rồi check T2, T3, T4, ..., CN thì sẽ có logic
-              tương ứng.
-              Vậy có cách nào để viết được unit test cover hết các case k ạ ???</p>
-          </div>
-          <div class="answer">
-            <div class="answer__container">
-              <img src="assets/images/register.jpg" alt="anhbacsi" class="answer__img">
-            </div>
-            <div class="answer_info">
-              <p class="answer__name">Bac si ka</p>
-              <p id="answer" class="answer__text">Ông này xàm ai cũng biết, nhưng ad có cần phải kiểu lật mặt vậy ko,
-                lúc
-                còn lợi dụng được người ta câu view thì tạo điều kiện duyệt mấy bài của ông này, còn bênh ông này nữa,
-                tới
-                lúc thấy hết giá trị thì đem ngta ra làm trò cười, ông này xàm 1 thì admin cũng chả ra gì. Tốt nhất là
-                admin
-                nên im luôn đi</p>
-            </div>
-          </div>
-        </div>
+      <div id="sentences" class="sentences">
       </div>
 
       <div class="category">
@@ -77,7 +29,9 @@
 
     </div>
   </main>
+  <div id="test"></div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="js/api/listquestion.js"></script>
+<script src="js/api/listquestion.js" type="module"></script>
+
 </html>
