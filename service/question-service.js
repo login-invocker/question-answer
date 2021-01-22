@@ -14,11 +14,6 @@ let headers = {
 	'Content-Type': 'application/json',
 }
 const addQuestion = async ()=> {
-    let api
-    api = axios.create({
-        baseURL: "http://localhost:8080/"
-        
-    });
     const req = {
       
         "idDepartments" : "xyzv",
@@ -28,7 +23,7 @@ const addQuestion = async ()=> {
     }
     const { data } = await api({
         method: 'post',
-        url: "question/addQuestion",
+        url: "/question/addQuestion",
         data: req,
         headers
     });
