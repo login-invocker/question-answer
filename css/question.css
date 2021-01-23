@@ -199,6 +199,19 @@ svg {
     font-size: 18px;
     font-weight: 300;
 }
+#ct-frm {
+    display: flex;
+    width: 100%;
+
+    flex-direction: column;
+    align-items: flex-start;
+}
+#button {
+    width: 100%;
+    font-family: 'Sansita';
+    font-size: 18px;
+    
+}
 @media screen and (max-width: 767px) {
     form {
         width: 100%;

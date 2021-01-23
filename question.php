@@ -15,26 +15,30 @@
             <div class="col-md-7">
                 <div id="content" class="mb-3  pt-3 pb-3 box-shadow">
                     <div class="container">
-                        <h4>Hỏi đáp bác sĩ trực tuyến</h4>
-                
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="question" class="form-label mt-3">
-                                    
-                                    <span >Chia sẻ vấn đề sức khoẻ của bạn với bác sĩ *</span>
-                                </label>
-                                <textarea name="question" id="question" rows="3" class="box-shadow form-control">Hãy nói về sức khỏe của bạn với các triệu chứng, loại thuốc hiện tại, giới tính, tuổi, chiều cao và cân nặng.</textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="formFileMedia" class="form-label mt-3" id="label-img">
-                                    <i class="far fa-images"></i>
-                                    Đính kèm ảnh về tình trạng sức khỏe của bạn
-                                </label>
-                                <input type="file" class="box-shadow form-control-file border" id="formFileMedia" >
-                            </div>
-                            <div id="note" class="mb-3">* Hình ảnh cá nhân của bạn hoàn toàn được bảo mật, chỉ bác sĩ mới có thể xem.</div>
-                        </form>
-                        <button onclick="addQuestion()">Đặt câu hỏi</button>
+                       <div id="ct-frm">
+                            
+                            
+                            <form action="" method="POST" enctype="multipart/form-data">
+                            <h4>Hỏi đáp bác sĩ trực tuyến</h4>
+                                <div class="mb-3">
+                                    <label for="question" class="form-label mt-3">
+                                        
+                                        <span >Chia sẻ vấn đề sức khoẻ của bạn với bác sĩ *</span>
+                                    </label>
+                                    <textarea name="question" id="question" rows="3" class="box-shadow form-control">Hãy nói về sức khỏe của bạn với các triệu chứng, loại thuốc hiện tại, giới tính, tuổi, chiều cao và cân nặng.</textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFileMedia" class="form-label mt-3" id="label-img">
+                                        <i class="far fa-images"></i>
+                                        Đính kèm ảnh về tình trạng sức khỏe của bạn
+                                    </label>
+                                    <input type="file" class="box-shadow form-control-file border" id="formFileMedia" >
+                                </div>
+                                <div id="note" class="mb-3">* Hình ảnh cá nhân của bạn hoàn toàn được bảo mật, chỉ bác sĩ mới có thể xem.</div>
+                                <button id="button" class="btn btn-primary" onclick="addQuestion()">Đặt câu hỏi</button>
+                            </form>
+                       </div>
+                    
 
                         <!-- <input id="formSubmit" style="width: 100%;" type="submit" class="btn btn-primary block mt-3" value="Đặt câu hỏi" onclick="addQuestion()"> -->
                     </div>
