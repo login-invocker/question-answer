@@ -24,16 +24,16 @@
                             <!-- form -->
                             <form action="">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Địa chỉ email " id="email">
+                                    <input type="email" class="form-control" placeholder="Địa chỉ email " id="email" require autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="**********" id="pass">
+                                    <input type="password" class="form-control" placeholder="**********" id="pass" require>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="**********" id="re-pass">
+                                    <input type="password" class="form-control" placeholder="**********" id="re-pass" require>
                                 </div>
-                                <input id="sub" type="submit" class="btn btn-dark login-btn mb-2" value="Đăng Ký">
-                                
+                                <input id="sub" onClick="register()" type="button" class="btn btn-dark login-btn mb-2" value="Đăng Ký">
+                                <!-- <button onClick="register()">okeee</button> -->
                                 <!-- <button class="btn btn-primary"><a href="#" class="text-white">
                                     <i class="fab fa-google-plus-square"></i> &nbsp; Đăng nhập bằng google</a></button> -->
                                 
@@ -45,7 +45,7 @@
                                     </a> -->
                                     
                                 <div>
-                                    <a href="login.html">
+                                    <a href="login.php">
                                         <span>Trở về đăng nhập ??</span>
                                     </a>
                                 </div>
@@ -59,8 +59,9 @@
             </div>
         </div>
     </div>
-    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
-    <script></script>
+    <script src="./service/user-service.js">
+    </script>
 </body>
 </html>
