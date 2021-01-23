@@ -22,7 +22,7 @@
                             <h1>Logo</h1>
                             <p class="mb-4">Đăng nhập vào tài khoản của bạn</p>
                             <!-- form -->
-                            <form action="">
+                            <form action="" id="frm">
                                 <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Địa chỉ email " id="email">
                                 </div>
@@ -31,7 +31,7 @@
                                 </div>
 
                                 <!-- submit -->
-                                <input id="sub" onclick="onClick()" type="submit" class="btn btn-dark login-btn mb-2" value="Đăng Nhập">
+                                <input id="sub" onClick= "login()" type="button" class="btn btn-dark login-btn mb-2" value="Đăng Nhập">
                                 
                                 <button class="btn btn-primary"><a href="#" class="text-white">
                                     <i class="fab fa-google-plus-square"></i> &nbsp; Đăng nhập bằng google</a></button>
@@ -44,7 +44,7 @@
                                     </a>
                                     
                                 <div>
-                                    <a href="register.html">
+                                    <a href="register.php">
                                         <span>Chưa có tài khoản ? Đăng ký ở đây</span>
                                     </a>
                                 </div>
@@ -62,28 +62,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
 
-    <script>
-       $(function(){
-        //    $("#sub").click(function() {
-                
-        //    })
-           let user = document.getElementById("email").value
-                let pass = document.getElementById("pass").value
-                const onClick = async (user, pass) => {
-                
-                const response = await axios.post('http://127.0.0.1:5500/home.html', {
-                    userEmail: user,
-                    pass: pass
-                })
-                if (response.code  === 200 ) {
-
-                } else {
-
-                    }
-                }
-       })
+    <script src="./service/user-service.js">
     </script>
    
-    <script></script>
 </body>
 </html>
