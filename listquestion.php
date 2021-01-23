@@ -32,6 +32,6 @@
   <div id="test"></div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="js/api/listquestion.js" type="module"></script>
+<script src="./service/listquestion-service.js" type="module"></script>
 
 </html>
