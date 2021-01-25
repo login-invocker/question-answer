@@ -1,6 +1,3 @@
-
-
-console.log("http://localhost:8080/", apiURLDoctorServer)
 const question = {
     idSpecialist : '',
     content : '',

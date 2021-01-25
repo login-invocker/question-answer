@@ -40,4 +40,4 @@ function process_data(data) {
   });
 }
 
-getQuestion();
+// getQuestion();

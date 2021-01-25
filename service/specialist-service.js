@@ -1,4 +1,4 @@
-let headers = {
+headers = {
 	'Content-Type': 'application/json',
 }
 const addSpecialist = async ()=> {

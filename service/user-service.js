@@ -10,7 +10,7 @@ const register = async () => {
         })
         console.log(response)
         if (response.code  === 201 ) {
-            alert('Email đã được đăng ký hihi')
+            alert('Email đã được đăng ký !')
         } else {
             window.location.replace("login.php")
             }
@@ -23,14 +23,14 @@ const register = async () => {
 const login = async () => {
     let user = $("#email").val()
     let pass = $("#pass").val()
-    const response = await axios.post('http://localhost:8080/user/login', {
-        "userEmail": user,
-        "userPass": pass
+    try {
+        const response = await axios.post('http://localhost:8080/user/login', {
+        "username": user,
+        "password": pass
     })
-    console.log(response)
-    if (response.code  === 401 ) {
+    setCookieNoExpires("tokenId", response.data.accessToken)
 
-    } else {
-        window.location.replace("login.php")
-        }
+    } catch (error) {
+        $("#loginFalse").html("Sai tên tài khoản hoặc mật khẩu")
+    }
 }

@@ -32,7 +32,7 @@
 
                                 <!-- submit -->
                                 <input id="sub" onClick= "login()" type="button" class="btn btn-dark login-btn mb-2" value="Đăng Nhập">
-                                
+                                <div id="loginFalse"></div>
                                 <button class="btn btn-primary"><a href="#" class="text-white">
                                     <i class="fab fa-google-plus-square"></i> &nbsp; Đăng nhập bằng google</a></button>
                                 
@@ -58,12 +58,10 @@
             </div>
         </div>
     </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
 
-    <script src="./service/user-service.js">
-    </script>
+    <?php
+    require "importjs.php"
+    ?>
    
 </body>
 </html>
