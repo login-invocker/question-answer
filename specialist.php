@@ -6,7 +6,6 @@
 <button onclick = "getOneSpecialist()">get one by id specialist</button> 
 <button onclick = "updateOneSpecialist()">update by id specialist</button> 
 
-    <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
-    <script src="./vendors/axios.min.js"></script>
-    <script src="./config/config.js"></script>
-    <script src="./service/specialist-service.js"></script>
+<?php
+require "importjs.php"
+?>

@@ -102,8 +102,8 @@
         </div>
     </div>
 
-    <?php
-        require "importjs.php"
-    ?>
+<?php
+    require "importjs.php"
+?>
 </body>
 </html>

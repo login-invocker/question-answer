@@ -59,9 +59,8 @@
             </div>
         </div>
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
-    <script src="./service/user-service.js">
-    </script>
+<?php
+require "importjs.php"
+?>
 </body>
 </html>
