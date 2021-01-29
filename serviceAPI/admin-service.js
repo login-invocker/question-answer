@@ -126,8 +126,7 @@ const getInfoUser = async(id) => {
     }
 
 }
-document.getElementById('close').onclick = function() { document.getElementById('card').style.display = 'none' } 
-    
+   
 const updateRoles = async(user)=> {
     const newRoles = setNewRoles()
     user.role = newRoles
@@ -155,4 +154,13 @@ const setNewRoles = () => {
     return newRoles
 }
 
+if(window.location.href.match("manageuser")){
 loadUsers()
+}
+
+const btnClose =  document.getElementById('close')
+    if(btnClose){
+    btnClose.onclick = () => { 
+        document.getElementById('card').style.display = 'none' 
+    } 
+}
