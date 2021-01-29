@@ -1,0 +1,38 @@
+@font-face {
+    src: url('../assets/fonts/Sansita/Sansita-Regular.ttf');
+    font-family: 'Sansita';
+    /* src: url('../assets/fonts/Karla/Karla-VariableFont_wght.ttf');
+    font-family: 'Karla'; */
+}
+body {
+    padding: 7px;
+    font-family: 'Sansita';
+}
+table {
+    font-family: 'Sansita';
+}
+#card {
+    font-family: 'Karla';
+    font-size: 17px;
+    width: 400px;
+    z-index: 100;
+    position: fixed;
+    
+    display: none;
+}
+#card-header {
+    display: flex;
+    justify-content: space-between;
+}
+#card-header button {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
