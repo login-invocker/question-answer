@@ -34,30 +34,25 @@ const addQuestion = async ()=> {
 }
 
 const getQuestion = async () => {
-    try {
-      console.log('calling');
-      const res = await axios.get(`${BASE_URL}`);
-  
-      const question = res.data;
-  
-      console.log(`GET: Here's the list of question`, question);
-  
-      process_data(question);
-  
-      return question;
-    } catch (e) {
-      console.error(e);
-    }
+    
+       const { data } = await api({
+        method: 'get',
+        url: "/question/list",
+        data: {},
+        headers
+    });
+    process_data(data)
   };
-  
+
+  getQuestion()
   function process_data(data) {
     let sentences = document.getElementById('sentences');
   
-    data.forEach(element => {
+    data.forEach( question => {
       sentences.innerHTML += `
         <div class="sentence">
           <div class="question">
-            <p id="question" class="question__text">${element.createdAt}</p>
+            <p id="question" class="question__text">${question.content}</p>
           </div>
           <div class="answer">
             <div class="answer__container">
@@ -65,7 +60,7 @@ const getQuestion = async () => {
             </div>
             <div class="answer_info">
               <p class="answer__name">Bac si ka</p>
-              <p id="answer" class="answer__text">${element.likeCount}</p>
+              <p id="answer" class="answer__text">${question.likeCount}</p>
             </div>
           </div>
         </div>
