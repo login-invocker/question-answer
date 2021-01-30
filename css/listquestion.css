@@ -22,12 +22,13 @@ body {
   font-size: 19px;
   font-weight: 600;
   margin-top: 3px;
+  word-wrap: break-word;
+  height: auto;
 }
 
 .answer__container {
   line-height: 0;
 }
-
 
 .answer__img {
   width: 40px;
@@ -74,4 +75,38 @@ body {
 .category__list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.action__view {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icofont-ui-love {
+  font-size: 18px;
+  color: rgb(216, 102, 102);
+  margin-right: 5px;
+}
+
+.action__view {
+  color: #312e2e;
+}
+
+.action__btn--item {
+  width: 230px;
+  height: 44px;
+  background-color: #FFF;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #312e2e;
+}
+
+.icofont-share, .icofont-speech-comments, .icofont-love {
+  font-size: 18px;
+}
+
+.action__btn {
+  margin-top: 10px;
+  border-top:  1px solid #312e2e;
 }
