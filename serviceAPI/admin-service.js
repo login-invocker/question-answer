@@ -1,9 +1,9 @@
-// const Roles = [
-//     'ADMIN'
-//     ,'CENTOR'
-//     ,'DOCTOR'
-//     ,'USER'
-// ]
+const Roles = [
+    'ADMIN'
+    ,'CENTOR'
+    ,'DOCTOR'
+    ,'USER'
+]
 // let arr1 = [
 //     {
 //         "id": 01,
