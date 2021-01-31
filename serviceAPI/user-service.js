@@ -1,12 +1,14 @@
 const register = async () => {
     const user = $("#email").val()
     const pass = $("#pass").val()
-    console.log(user + $("#re-pass").val())
-   if(pass == $("#re-pass").val()){
+    const username = $("#username").val()
+
+    if(pass == $("#re-pass").val()){
       
         const response = await axios.post('http://localhost:8080/user/register', {
             "userPass": pass,
-            "userEmail": user
+            "userEmail": user,
+            "userName": username,
         })
         console.log(response)
         if (response.code  === 201 ) {
@@ -23,14 +25,36 @@ const register = async () => {
 const login = async () => {
     let user = $("#email").val()
     let pass = $("#pass").val()
+    
+    let userInfo = {}
     try {
         const response = await axios.post('http://localhost:8080/user/login', {
         "username": user,
         "password": pass
     })
-    setCookieNoExpires("tokenId", response.data.accessToken)
+    const dataUser = await getUserByeUserName();
 
+    userInfo = {
+        tokenId: response.data.accessToken,
+        role: dataUser.role
+    }
     } catch (error) {
         $("#loginFalse").html("Sai tên tài khoản hoặc mật khẩu")
     }
+    console.log(userInfo)
+    setCookie("tokenId", userInfo.tokenId, 7)
+    setCookie("roles", userInfo.role,7)
+
+}
+
+const getUserByeUserName = async () => {
+    let userName = $("#email").val()
+
+    const responseData = await api({
+        method: 'get',
+        url: `/user/email/${userName}`,
+        data: {},
+        headers
+    });
+    return responseData.data
 }

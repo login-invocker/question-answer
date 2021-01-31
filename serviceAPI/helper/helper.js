@@ -1,6 +1,6 @@
-function setCookieNonExpires(cname, cvalue) {
-    document.cookie = cname + "=" + cvalue + ";SameSite=None ";
-}
+// function setCookieNonExpires(cname, cvalue) {
+//     document.cookie = cname + "=" + cvalue + ";SameSite=None ";
+// }
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();

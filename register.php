@@ -26,6 +26,10 @@
                                 <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Địa chỉ email " id="email" require autofocus>
                                 </div>
+                                
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your user name" id="username" require autofocus>
+                                </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" placeholder="**********" id="pass" require>
                                 </div>
