@@ -1,0 +1,18 @@
+[
+    {
+        "user": {
+            "full_name": "Bá oai",
+            "specialist": "Răng hàm mặt"
+        },
+        "content": "Chào bạn,\t Bạn cần phải chụp hình kiểm tra lại khớp gối, uống thuốc điều trị theo toa và lịch hẹn tái khám của bác sỹ nhé.\tNếu bệnh không đỡ thì cần tham vấn bác sỹ có phương pháp điều trị gì khác không?\tThân mến",
+        "user_response": {}
+    },
+    {
+        "user": {
+            "full_name": "Vũ văn tiến",
+            "specialist": "Da Liễu"
+        },
+        "content": "Chào TÙng,\tBạn cần liên hệ cơ sở bác sỹ gần nhất nhé!",
+        "user_response": {}
+    }
+]
