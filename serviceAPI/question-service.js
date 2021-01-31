@@ -89,7 +89,11 @@ const addComment = async (a) => {
 
 function process_data(data) {
   let sentences = document.getElementById('sentences');
-
+  const isDocter = checkRoleCookie("DOCTOR")
+  let btnAnswer = isDocter ? `
+    <button class="action__btn--item btn-mid" onclick="answer()"><i class="icofont-speech-comments"></i>Trả lời</button>
+    `
+    :''
   data.forEach( question => {
     sentences.innerHTML += `
     <div class="sentence">
@@ -110,14 +114,12 @@ function process_data(data) {
 
       <div class="action__btn">
 
-        <button class="action__btn--item" id="btn-love"><i class="icofont-love"></i> Yêu thích</button>
-        <button class="action__btn--item btn-mid" onclick="answer()"><i class="icofont-speech-comments"></i>Trả lời</button>
-        <button class="action__btn--item"><i class="icofont-share"></i></i> Chia sẻ</button>
+      <button class="action__btn--item" id="btn-love"><i class="icofont-love"></i> Yêu thích</button>
+      `+btnAnswer+`
+      <button class="action__btn--item"><i class="icofont-share"></i></i> Chia sẻ</button>
 
-      </div>
-    </div>
-
-    <div class="addanswer show" id="show">
+     </div>
+  </div>    <div class="addanswer show" id="show">
       <textarea name="" id="text-answer" cols="30" rows="10" placeholder="Nhập câu trả lời của bạn tại đây!"></textarea>
       <button class="btn-send" onclick="addComment()">
         <img src="assets/images/icon-send.png" alt="img">
