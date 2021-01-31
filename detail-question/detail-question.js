@@ -6,7 +6,7 @@ new Vue({
         comments: []
       }
     },
-    async mounted () {
+    mounted () {
         // question
       axios
         .get('./question.json')

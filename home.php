@@ -13,7 +13,8 @@
 <a href="/front-end-question-answer/login.php">login</a>
 <a href="/front-end-question-answer/register.php">register</a>
 <a href="/front-end-question-answer/specialist.php">specialist</a>
-<a href="/front-end-question-answer/listquestion.php">listquestions</a>
+<a href="/front-end-question-answer/specialist.php">specialist</a>
+<a href="/front-end-question-answer/specialist-manager/specialist-manager.php">specialist manager</a>
 
     <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
     <script>

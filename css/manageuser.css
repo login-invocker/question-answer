@@ -12,6 +12,8 @@ table {
     font-family: 'Sansita';
 }
 #card {
+    position: absolute;
+    top: 200px;
     font-family: 'Karla';
     font-size: 17px;
     width: 400px;
