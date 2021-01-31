@@ -3,7 +3,7 @@ new Vue({
     data () {
       return {
         question: {},
-        comment: []
+        comments: []
       }
     },
     async mounted () {
@@ -24,8 +24,16 @@ new Vue({
                 
                 this.question = question
             })
+
+             // comment
+            axios
+            .get('./comment.json', {id: question.id})
+            .then(resComment => {
+                
+                this.comments = resComment.data
+            })
         })
 
-        // comment
+       
     }
   })

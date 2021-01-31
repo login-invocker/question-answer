@@ -1,3 +1,96 @@
+.back-to-list-q {
+    margin: 0 0 20px 0;
+}
+
+.ck {
+    color: #248eff;
+font-size: 14px;
+}
+.info-user {
+    display: -webkit-box;
+display: flex;
+color: #969696;
+font-size: 16px;
+line-height: 16px;
+white-space: nowrap;
+}
+.question-info {
+ border-left: 3px solid gray;
+ padding: 10px;   
+}
+
+.name-specialist {
+    margin: 10px 0 0px 0;
+    width: 100%;
+display: -webkit-box;
+display: flex;
+color: #969696;
+font-size: 14px;
+line-height: 16px;
+white-space: nowrap;
+}
 .col-8 h3 {
     margin-top: 20px;
+}
+
+
+.answer__container {
+    line-height: 0;
+  }
+  
+  
+  .answer__img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+  }
+  
+  .answer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+  
+  .answer_info {
+    background-color:#f0f2f2;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-left: 7px;
+  }
+  
+  .answer__name {
+    margin: 0px;
+   font-weight: 550;
+   font-size: 15px;
+  }
+  
+  .answer__text {
+    font-size: 17px;
+    margin: 5px 0px;
+  }
+
+/* Đặt câu hỏi */
+
+.set-question {
+
+    background: #def0f8;
+    border: 1px solid #BCDFF1;
+    border-radius: 4px;
+    align-items: center;
+    padding: 0 10% 10 5%;
+
+}
+
+.set-question textarea{
+
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 11px;
+}
+
+.set-question button {
+    margin-top: 10px;
+    /* float: right; */
+    margin-left: 60%;
 }
