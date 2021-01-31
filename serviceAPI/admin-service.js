@@ -4,55 +4,6 @@ const Roles = [
     ,'DOCTOR'
     ,'USER'
 ]
-// let arr1 = [
-//     {
-//         "id": 01,
-//         "userName":"tienvu112",
-//         "fullName": "vu tien",
-//         "userPass": "deptrai",
-//         "userEmail": "vutiendzil@gmail.com",
-//         "cellPhone": "0338660122",
-//         "dateOfBirth": "2000-07-15",
-//         "sex": "nam",
-//         "role": [
-//             "ADMIN",
-//             "DOCTOR"
-//         ]
-//     },
-//     {
-//         "id": 02,
-//         "userName":"tungnui221",
-//         "fullName": "thanh tung",
-//         "userPass": "deptrai",
-//         "userEmail": "tung@gmail.com",
-//         "cellPhone": "0338660122",
-//         "dateOfBirth": "2000-07-15",
-//         "sex": "nam",
-//         "role": null
-//     },
-//     {
-//         "id": 03,
-//         "userName":"oaiker222",
-//         "fullName": "thanh tung",
-//         "userPass": "deptrai",
-//         "userEmail": "tung@gmail.com",
-//         "cellPhone": "0338660122",
-//         "dateOfBirth": "2000-07-15",
-//         "sex": "nam",
-//         "role": null
-//     },
-//     {
-//         "id": 04,
-//         "userName":"vuongkim222",
-//         "fullName": "thanh tung",
-//         "userPass": "deptrai",
-//         "userEmail": "tung@gmail.com",
-//         "cellPhone": "0338660122",
-//         "dateOfBirth": "2000-07-15",
-//         "sex": "nam",
-//         "role": null
-//     }
-// ]
 
 const getUsersApi =  async () =>{
     const users = await api({

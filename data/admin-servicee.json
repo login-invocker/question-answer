@@ -1,0 +1,49 @@
+ [
+    {
+        "id": 1,
+        "userName":"tienvu112",
+        "fullName": "vu tien",
+        "userPass": "deptrai",
+        "userEmail": "vutiendzil@gmail.com",
+        "cellPhone": "0338660122",
+        "dateOfBirth": "2000-07-15",
+        "sex": "nam",
+        "role": [
+            "ADMIN",
+            "DOCTOR"
+        ]
+    },
+    {
+        "id": 2,
+        "userName":"tungnui221",
+        "fullName": "thanh tung",
+        "userPass": "deptrai",
+        "userEmail": "tung@gmail.com",
+        "cellPhone": "0338660122",
+        "dateOfBirth": "2000-07-15",
+        "sex": "nam",
+        "role": null
+    },
+    {
+        "id": 3,
+        "userName":"oaiker222",
+        "fullName": "thanh tung",
+        "userPass": "deptrai",
+        "userEmail": "tung@gmail.com",
+        "cellPhone": "0338660122",
+        "dateOfBirth": "2000-07-15",
+        "sex": "nam",
+        "role": null
+    },
+    {
+        "id": 4,
+        "userName":"vuongkim222",
+        "fullName": "thanh tung",
+        "userPass": "deptrai",
+        "userEmail": "tung@gmail.com",
+        "cellPhone": "0338660122",
+        "dateOfBirth": "2000-07-15",
+        "sex": "nam",
+        "role": null
+    }
+]
