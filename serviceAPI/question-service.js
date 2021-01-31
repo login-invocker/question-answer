@@ -1,70 +1,143 @@
 const question = {
-    idSpecialist : '',
-    content : '',
+  idSpecialist: '',
+  content: '',
 }
 
 const image = {
-    nameImage : ''
+  nameImage: ''
 }
 
 let headers = {
-	'Content-Type': 'application/json',
+  'Content-Type': 'application/json',
 }
-const addQuestion = async ()=> {
-    const req = {
-      
-        "idDepartments" : "xyzv",
-        "content" : "tao bi benh gi 3 ?",
-        "idUser" : "abc",
-        "view" : 1
-    }
-    const { data } = await api({
-        method: 'post',
-        url: "/question/addQuestion",
-        data: req,
-        headers
-    });
+const addQuestion = async (content) => {
+  const req = {
+  "content": `${content}`,
+  "idSpecialist": "stri123ng",
+  "idUser": "str11ing",
+  "status": "st123ring",
+  }
 
-    // const addQ = await axios.get(`user/login`, {
-    //     "email" : "trasceuroai@gmail.com",
-    //     "pass" : "123456"
-    // });
-    
-    console.log(data)
+  const { data } = await api({
+    method: 'post',
+    url: "/question/add-question",
+    data: req,
+    headers
+  });
 }
 
 const getQuestion = async () => {
-    
-       const { data } = await api({
-        method: 'get',
-        url: "/question/list",
-        data: {},
-        headers
-    });
-    process_data(data)
-  };
-
-  getQuestion()
-  function process_data(data) {
-    let sentences = document.getElementById('sentences');
-  
-    data.forEach( question => {
-      sentences.innerHTML += `
-        <div class="sentence">
-          <div class="question">
-            <p id="question" class="question__text">${question.content}</p>
-          </div>
-          <div class="answer">
-            <div class="answer__container">
-              <img src="assets/images/register.jpg" alt="anhbacsi" class="answer__img">
-            </div>
-            <div class="answer_info">
-              <p class="answer__name">Bac si ka</p>
-              <p id="answer" class="answer__text">${question.likeCount}</p>
-            </div>
-          </div>
-        </div>
-      `;
-    });
+  try {
+    const res = await api({
+      method: 'get',
+      url: "/question/list",
+      data: {},
+      headers
+  });
+    const question = res.data;
+    process_data(question);
+    return question;
+  } catch (e) {
+    console.error(e);
   }
-  
+};
+
+// api select one question
+
+const getOneQuestion = async (id) => {
+  try {
+    const res = await axios.get(`http://localhost:8080/question/question?id=${id}`);
+    const question = res.data;
+    process_data(question);
+    return question;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+// api update one question
+
+const updateQuestion = async (content, idUser, idSpecialist) => {
+  const req = {
+    "content": `${content}`,
+    "idSpecialist": `${idUser}`,
+    "idUser": `${idSpecialist}`,
+  }
+
+  const { data } = await api({
+    method: 'put',
+    url: "/question/updateQuestion",
+    data: req,
+    headers
+  });
+
+}
+
+// api add comment
+
+const addComment = async (a) => {
+  const req = {
+    "answer": `${a}`,
+  }
+  const { data } = await api({
+    method: 'post',
+    url: "user/comment",
+    data: req,
+    headers
+  });
+}
+
+function process_data(data) {
+  let sentences = document.getElementById('sentences');
+
+  data.forEach( question => {
+    sentences.innerHTML += `
+    <div class="sentence">
+    <div class="question">
+      <p id="question" class="question__text">${question.content}</p>
+    </div>
+
+    <div class="action">
+      <div class="action__view">
+        <div class="action__view--like">
+          <i class="icofont-ui-love"></i><span>12</span>
+        </div>
+        <div class="action__view--number">
+          <i class="fas fa-heart"></i>
+          33 lượt xem
+        </div>
+      </div>
+
+      <div class="action__btn">
+
+        <button class="action__btn--item" id="btn-love"><i class="icofont-love"></i> Yêu thích</button>
+        <button class="action__btn--item btn-mid" onclick="answer()"><i class="icofont-speech-comments"></i>Trả lời</button>
+        <button class="action__btn--item"><i class="icofont-share"></i></i> Chia sẻ</button>
+
+      </div>
+    </div>
+
+    <div class="addanswer show" id="show">
+      <textarea name="" id="text-answer" cols="30" rows="10" placeholder="Nhập câu trả lời của bạn tại đây!"></textarea>
+      <button class="btn-send" onclick="addComment()">
+        <img src="assets/images/icon-send.png" alt="img">
+        <span class="">Gửi câu trả lời</span>
+      </button>
+    </div>
+
+    <!-- <div class="answer">
+      <div class="answer__container">
+        <img src="assets/images/register.jpg" alt="anhbacsi" class="answer__img">
+      </div>
+      <div class="answer_info">
+        <p class="answer__name">Bac si ka</p>
+        <p id="answer" class="answer__text">Together we inspire learners to go further
+          Our range of free teaching resources, lesson plans and activities is designed to help you prepare your
+          students for our exams and tests. We also have a range of teaching qualifications, courses and support
+          to help you develop as a teacher.</p>
+      </div>
+    </div> -->
+  </div>
+      `;
+  });
+}

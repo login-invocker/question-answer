@@ -10,24 +10,25 @@ body {
 }
 
 .sentence{
-  
   background-color: #FFFFFF;
   width: 700px;
   margin: 20px 0px 0px;
   padding: 12px 16px;
   border-radius: 10px;
+  box-shadow: 3px 3px #cec9c9;
 }
 
 .question__text{
   font-size: 19px;
   font-weight: 600;
   margin-top: 3px;
+  word-wrap: break-word;
+  height: auto;
 }
 
 .answer__container {
   line-height: 0;
 }
-
 
 .answer__img {
   width: 40px;
@@ -59,19 +60,110 @@ body {
 }
 
 .category {
-  width: 400px;
+  width: 350px;
+  box-shadow: 3px 3px #cec9c9;
+  height: 600px;
 }
 
 .category__item {
-  background-color: blue;
   padding: 4px 10px;
-  color: #FFFFFF;
-  border-radius:15px;
+  border: 1px solid #312e2e;
+  border-radius:10px;
   font-size: 18px;
-  margin: 0px 5px 5px 0px;
+  margin: 0px 10px 10px 0px;
+  box-shadow: 3px 3px #cec9c9;
 }
 
 .category__list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.action__view {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icofont-ui-love {
+  font-size: 18px;
+  color: rgb(216, 102, 102);
+  margin-right: 5px;
+}
+
+.action__view {
+  color: #312e2e;
+}
+
+.action__btn--item {
+  width: 230px;
+  height: 44px;
+  background-color: #FFF;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #312e2e;
+  padding: 0;
+}
+
+.action__btn--item:hover {
+  border: 1;
+  border-radius: 10px;
+  background-color: #dff0f0;
+  cursor: pointer;
+}
+
+.icofont-share, .icofont-speech-comments, .icofont-love {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.action__btn {
+  margin: 10px 0px 15px;
+  border-top:  1px solid #312e2e;
+  border-bottom:  1px solid #312e2e;
+  padding: 3px 0px;
+}
+
+.category {
+  background-color: #FFFFFF;
+  padding: 0px 15px;
+  border-radius: 10px;
+}
+
+.category__title {
+  border-top:  1px solid #312e2e;
+  border-bottom:  1px solid #312e2e; 
+  margin: 10px 0px 15px;
+  padding: 8px 10px 8px;
+}
+
+#btn-love {
+
+}
+
+#btn-love:cl {
+
+}
+
+.btn-send {
+  background-color: #007bff;
+  border: none;
+  color: #FFF;
+  font-size: 15px;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-weight: 600;
+  
+  display: flex;
+  margin: 10px auto 0;
+}
+
+#text-answer {
+  width: 677px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.show {
+  display: none;
 }
