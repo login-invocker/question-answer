@@ -1,1 +1,2 @@
-design by tien vu
+- sever Php
+- get  api from server java
