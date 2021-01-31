@@ -24,7 +24,7 @@
                             <!-- form -->
                             <form action="" id="frm">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Địa chỉ email " id="email">
+                                    <input type="text" class="form-control" placeholder="Địa chỉ email hoặc use name" id="email">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" placeholder="**********" id="pass">
