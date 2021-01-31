@@ -34,3 +34,11 @@ function setCookie(cname, cvalue, exdays) {
       }
     }
   } 
+
+const checkRoleCookie = (role) => {
+  const roles = getCookie("roles");
+    if(roles.includes(role)){
+      return true
+    }
+    return false
+}
