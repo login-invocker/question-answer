@@ -39,9 +39,9 @@
             <div class="card-body" id="card-body">
     
             </div>
-            <div class="card-footer" id="card-footer">
+            <!-- <div class="card-footer" id="card-footer">
 
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -95,27 +95,23 @@
         ]
 
         
-            // document.getElementById("tbody").innerHTML = function() {
-            //     for(i = 0 ; i < arr1.length ; i ++) {
+            
+               
+            function htmlTbody() {
+                for ( i = 0 ; i < arr1.length ; i++) {
+                    document.getElementById("tbody").innerHTML +=
                     
-            //     }
-            // }
-               
-            for ( i = 0 ; i < arr1.length ; i++) {
-                document.getElementById("tbody").innerHTML +=
-                
-       
-                
-                "<td>"+(i+1)+"</td><td>"+arr1[i]["userName"]+"</td><td>"+arr1[i]["userEmail"]+"</td><td>"+
-                    arr1[i]["cellPhone"] + "</td><td>"+arr1[i]["role"] +"</td><td>"
-                +
-                        
-                        `
-                <button class='btn' id='view' onClick="getInfoUser(${arr1[i]["id"]})" >
-                <i class='fas fa-eye'></i></button> <button class='btn' id='delete'><i class='fas fa-trash'></i></button></td>`
-               
+        
+                    
+                    "<td>"+(i+1)+"</td><td>"+arr1[i]["userName"]+"</td><td>"+arr1[i]["userEmail"]+"</td><td>"+
+                        arr1[i]["cellPhone"] + "</td><td>"+arr1[i]["role"] +"</td><td>"
+                    +
+                            `
+                    <button class='btn' id='view' onClick="getInfoUser(${arr1[i]["id"]})" >
+                    <i class='fas fa-eye'></i></button> <button onClick="deleteUser(${arr1[i]["id"]})" class='btn' id='delete'><i class='fas fa-trash'></i></button></td>`
+                }
             }
-
+            htmlTbody()
             const getInfoUser = (id) => {
                 document.getElementById("card").style.display = "block"
                 let content = arr1.map( (arr) => {
@@ -123,28 +119,98 @@
                             return arr
                         }
                     })
-                    
                 content = content.filter(function( user ) {
                     return user !== undefined;
                 });
+                document.getElementById("card-body").innerHTML =
+                 `
+                        <div>
+                            <label class='form-label' for='username'> User Name :</label>
+                            <input type='text' id='username' class='' value='${content[0]["userName"]}' autofocus >    
+                        </div>
+                        <div>
+                            <label class='form-label' for='fullname'>Full Name :</label>
+                            <input type='text' id='fullname' class='' value='${content[0]["fullName"]}'>    
+                        </div>
+                        <div>
+                            <label class='form-label' for='pass'>User Pass :</label>
+                            <input type='text' id='pass' class='' value='${content[0]["userPass"]}'>    
+                        </div>
+                        <div>
+                            <label class='form-label' for='email'>User Email :</label>
+                            <input type='text' id='email' class='' value='${content[0]["userEmail"]}'>    
+                        </div>
+                        <div>
+                            <label class='form-label' for='cellphone'>Cell Phone :</label>
+                            <input type='text' id='cellphone' class='' value='${content[0]["cellPhone"]}'>    
+                        </div>
+                        <div>
+                            <label class='form-label' for='dateofbirth'>Date Of Birth :</label>
+                            <input type='date' id='dateofbirth' class='' value='${content[0]["dateOfBirth"]}'>    
+                        </div>
+                        <div>
+                            <label class='form-label' for='sex'>Sex :</label>
+                            <input type='text' id='sex' class='' value='${content[0]["sex"]}'>    
+                        </div>
+                        <div>
+                            <label class='form-label' for='role'>Role :</label>
+                            <input type='text' id='role' class='' value='${content[0]["role"]}'>    
+                        </div>
+                        <button class='btn btn-primary' onClick = "updateInfo(${id})" id='sucessupdate' style='width: 100%' >Update</button>
+                    
+                 `
+               
+            }
+            const updateInfo = (iduser) => {
+                    let contents = arr1.map( (arr) => {
+                        if (iduser === arr.id) {
+                            return arr
+                        }
+                    })
+                    contents = contents.filter(function( user ) {
+                        return user !== undefined;
+                    });
+                    var newinfo = {
+                            // "id": document.getElementById('iduser').value,
+                            "userName":document.getElementById('username').value,
+                            "fullName": document.getElementById('fullname').value,
+                            "userPass": document.getElementById('pass').value,
+                            "userEmail": document.getElementById('email').value,
+                            "cellPhone": document.getElementById('cellphone').value,
+                            "dateOfBirth": document.getElementById('dateofbirth').value,
+                            "sex": document.getElementById('sex').value,
+                            "role": document.getElementById('role').value
+                        }
 
-                // document.getElementById("card-body").innerHTML = content[0]["userName"]
-
-                document.getElementById("card-body").innerHTML = `<div>User Name : ${content[0]["userName"]}</div><div>Full Name : ${content[0]["fullName"]}</div><div>User Email : ${content[0]["userEmail"]}</div><div>Phone Number : ${content[0]["cellPhone"]}</div><div>User Pass : ${content[0]["userPass"]}</div><div>Sex : ${content[0]["sex"]}</div><div>Role : ${content[0]["role"]}</div>`
-                
+                   
+                 
+                        
+                        for(j = 0 ; j < arr1.length ; j ++) {
+                            if(arr1[j]['id'] === iduser) {
+                                arr1[j] = newinfo
+                            }
+                        }
+                        
+                    document.getElementById('card').style.display = 'none'
+                    document.getElementById('tbody').innerHTML = ''
+                    htmlTbody()
+                        
+                    
+                }
+            const deleteUser= (id) => {
+                for(j = 0 ; j < arr1.length ; j ++) {
+                    if(arr1[j]['id'] === id) {
+                        arr1.splice(j,1);
+                    }
+                }
+                document.getElementById('tbody').innerHTML = ''
+                htmlTbody()
+          
             }
             document.getElementById('close').onclick = function() {
                 document.getElementById('card').style.display = 'none'
             }
-            // document.getElementById("view").onclick = function() {
-            //     arr1.forEach( user=> {
-                   
-
-            //         userInfo = content
-            //     } )
-                    
-                // }
-        
+           
     </script>
 </body>
-</html>
+</html>                        
