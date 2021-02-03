@@ -10,11 +10,11 @@
     hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 <body>
-   <marquee behavior="" direction="" class="p-3 bg-primary text-white">
+   <div behavior="" direction="" class="p-3 bg-primary text-white " style="width: 100%;">
         <h3 class="" id="header">
             User Management
         </h3>
-   </marquee>
+   </div>
     <table class="table" id="table">
         <thead>
             <tr>
@@ -39,11 +39,33 @@
             <div class="card-body" id="card-body">
     
             </div>
-            <!-- <div class="card-footer" id="card-footer">
-
-            </div> -->
         </div>
     </div>
+
+    <div id="container">
+        <div class="card border border-secondary rounded" id="card-question-delete">
+            <div class="card-header " id="card-delete-header">
+                <h4>Chắc chắn muốn xoá user này ???</h4> 
+            </div>
+            <div class="card-body" id="card-delete-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-primary" id="yes-delete">
+                            YES
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-dark" id="no-delete">
+                            NO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
 
     <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
     <script>
@@ -181,7 +203,7 @@
                             "sex": document.getElementById('sex').value,
                             "role": document.getElementById('role').value
                         }
-
+            
                    
                  
                         
@@ -198,13 +220,22 @@
                     
                 }
             const deleteUser= (id) => {
-                for(j = 0 ; j < arr1.length ; j ++) {
-                    if(arr1[j]['id'] === id) {
-                        arr1.splice(j,1);
+                document.getElementById('card-question-delete').style.display = 'block'
+                document.getElementById('yes-delete').onclick = function() {
+                    for(j = 0 ; j < arr1.length ; j ++) {
+                        if(arr1[j]['id'] === id) {
+                            arr1.splice(j,1);
+                        }
                     }
+                    document.getElementById('card-question-delete').style.display = 'none'
+                    document.getElementById('tbody').innerHTML = ''
+                    htmlTbody()
                 }
-                document.getElementById('tbody').innerHTML = ''
-                htmlTbody()
+                document.getElementById('no-delete').onclick = function() {
+                    document.getElementById('card-question-delete').style.display = 'none'
+                }
+
+               
           
             }
             document.getElementById('close').onclick = function() {

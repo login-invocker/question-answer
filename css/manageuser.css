@@ -18,8 +18,6 @@ table {
     letter-spacing: 1px;
     width: 400px;
     z-index: 100;
-    position: fixed;
-    
     display: none;
 }
 #card-header {
@@ -33,10 +31,20 @@ table {
     justify-content: center;
     align-items: center;
 }
+#card-question-delete {
+    display: none;
+}
+#card-question-delete button{
+    width: 100%;
+}
 #container {
-    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 #card-update {
     font-family: 'Karla';
