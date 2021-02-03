@@ -58,3 +58,15 @@ const getUserByeUserName = async () => {
     });
     return responseData.data
 }
+
+
+const deleteUserById = async (id) => {
+    
+    const responseData = await api({
+        method: 'delete',
+        url: `/user/deleteUser`,
+        data: {"id": id},
+        headers
+    });
+    return responseData.data
+}

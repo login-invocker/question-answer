@@ -42,3 +42,8 @@ const checkRoleCookie = (role) => {
     }
     return false
 }
+
+const standardTimeConvert = (day) => {
+  // const formatDate = moment(day).format("yyyy-MM-DD HH:mm:ss")
+  return moment(day).format()
+}

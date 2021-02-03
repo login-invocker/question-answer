@@ -27,10 +27,12 @@ const loadUsers = async () => {
         "</td><td>"
         +`
         <button class='btn' id='view' onClick="getInfoUser('${users[i]["id"]}')" >
-        <i class='fas fa-eye'></i></button>
-        <button class='btn' id='delete'>
-        <i class='fas fa-trash'></i>
-        </button></td>`
+            <i class='fas fa-eye'></i>
+        </button>
+        <button onClick="deleteUser('${users[i]["id"]}')" class='btn' id='delete'>
+            <i class='fas fa-trash'></i>
+        </button>
+        </td>`
     }
 }
 
@@ -47,16 +49,45 @@ const getInfoUser = async(id) => {
     content = content.filter(function( user ) {
         return user !== undefined;
     });
-
+    
+    const dateStandard = moment(content[0]["dateOfBirth"]).format("yyyy-MM-DD")
     document.getElementById("card-body").innerHTML = 
-    `<div>User Name : ${content[0]["userName"]}</div>
-    <div>Full Name : ${content[0]["fullName"]}</div>
-    <div>User Email : ${content[0]["userEmail"]}</div>
-    <div>Phone Number : ${content[0]["cellPhone"]}</div>
-    <div>User Pass : ${content[0]["userPass"]}</div>
-    <div>Sex : ${content[0]["sex"]}</div>
-    <div>Role : ${content[0]["role"]}</div>
     `
+    <div>
+        <label class='form-label' for='username'> User Name :</label>
+        <input type='text' id='username' class='' value='${content[0]["userName"]}' autofocus >    
+    </div>
+    <div>
+        <label class='form-label' for='fullname'>Full Name :</label>
+        <input type='text' id='fullname' class='' value='${content[0]["fullName"]}'>    
+    </div>
+    <div>
+        <label class='form-label' for='pass'>User Pass :</label>
+        <input type='text' id='pass' class='' value='${content[0]["userPass"]}'>    
+    </div>
+    <div>
+        <label class='form-label' for='email'>User Email :</label>
+        <input type='text' id='email' class='' value='${content[0]["userEmail"]}'>    
+    </div>
+    <div>
+        <label class='form-label' for='cellphone'>Cell Phone :</label>
+        <input type='text' id='cellphone' class='' value='${content[0]["cellPhone"]}'>    
+    </div>
+    <div>
+        <label class='form-label' for='dateofbirth'>Date Of Birth :</label>
+        <input type='date' id='dateofbirth' class='' value='${dateStandard}'>    
+    </div>
+    <div>
+        <label class='form-label' for='sex'>Sex :</label>
+        <input type='text' id='sex' class='' value='${content[0]["sex"]}'>    
+    </div>
+    <div>
+        <label class='form-label' for='role'>Role :</label>
+        <input type='text' id='role' class='' value='${content[0]["role"]}'>    
+    </div>
+    <button class='btn btn-primary' onClick = "updateInfo('${id}')" id='sucessupdate' style='width: 100%' >Update</button>
+
+`
 
     let footerCard =``
     Roles.forEach( role => {
@@ -77,11 +108,49 @@ const getInfoUser = async(id) => {
     }
 
 }
-   
+ 
+
+const updateInfo = async (iduser) => {
+    const users = await getUsersApi();
+
+    let contents = users.map( (arr) => {
+        if (iduser === arr.id) {
+            return arr
+        }
+    })
+    contents = contents.filter(function( user ) {
+        return user !== undefined;
+    });
+    const newUserInfo = {
+            "id": iduser,
+            "userName":document.getElementById('username').value,
+            "fullName": document.getElementById('fullname').value,
+            "userPass": document.getElementById('pass').value,
+            "userEmail": document.getElementById('email').value,
+            "cellPhone": document.getElementById('cellphone').value,
+            "dateOfBirth": document.getElementById('dateofbirth').value,
+            "sex": document.getElementById('sex').value,
+            "role": setNewRoles()
+        }
+
+
+        newUserInfo.dateOfBirth = standardTimeConvert(newUserInfo.dateOfBirth)
+
+        const response = await api({
+        method: 'put',
+        url: "/admin/quantri/updateuser",
+        data: newUserInfo,
+        headers
+    });
+    if(response.status === 200) {
+        alert("Update Success")
+        location.reload();
+    }
+    
+}
 const updateRoles = async(user)=> {
     const newRoles = setNewRoles()
     user.role = newRoles
-    console.log(user)
     const response = await api({
         method: 'put',
         url: "/admin/quantri/updateuser",
@@ -93,6 +162,15 @@ const updateRoles = async(user)=> {
         location.reload();
     }
 }
+
+const deleteUser = async (id) => {
+    if(confirm("Bạn có chắc chắn muốn xóa user này ?") == true){
+        const resDelete = await deleteUserById(id);
+        location.reload();
+    }else{
+    }
+}
+
 
 const setNewRoles = () => {
     let newRoles = []

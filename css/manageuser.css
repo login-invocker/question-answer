@@ -12,10 +12,11 @@ table {
     font-family: 'Sansita';
 }
 #card {
-    position: absolute;
-    top: 200px;
     font-family: 'Karla';
+    font-family: 'Sansita';
     font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
     width: 400px;
     z-index: 100;
     position: fixed;
@@ -37,4 +38,16 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#card-update {
+    font-family: 'Karla';
+    font-size: 17px;
+    width: 400px;
+    z-index: 100;
+    position: fixed;
+    display: none;
+}
+input {
+    border: none;
+    outline: none;
 }
