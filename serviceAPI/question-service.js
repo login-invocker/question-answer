@@ -12,10 +12,10 @@ let headers = {
 }
 const addQuestion = async (content) => {
   const req = {
-  "content": `${content}`,
-  "idSpecialist": "stri123ng",
-  "idUser": "str11ing",
-  "status": "st123ring",
+    "content": `${content}`,
+    "idSpecialist": "stri123ng",
+    "idUser": "str11ing",
+    "status": "st123ring",
   }
 
   const { data } = await api({
@@ -33,7 +33,7 @@ const getQuestion = async () => {
       url: "/question/list",
       data: {},
       headers
-  });
+    });
     const question = res.data;
     process_data(question);
     return question;
@@ -46,9 +46,13 @@ const getQuestion = async () => {
 
 const getOneQuestion = async (id) => {
   try {
-    const res = await axios.get(`http://localhost:8080/question/question?id=${id}`);
+    const res = await api({
+      method: 'get',
+      url: `/question/question?id=${id}`,
+      data: {},
+      headers
+  });
     const question = res.data;
-    process_data(question);
     return question;
   } catch (e) {
     console.error(e);
@@ -75,6 +79,21 @@ const updateQuestion = async (content, idUser, idSpecialist) => {
 
 // api add comment
 
+const getComment = async () => {
+  try {
+    const res = await api({
+      method: 'get',
+      url: "url get comment",
+      data: {},
+      headers
+    });
+    const comment = res.data;
+    return comment;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 const addComment = async (a) => {
   const req = {
     "answer": `${a}`,
@@ -87,14 +106,16 @@ const addComment = async (a) => {
   });
 }
 
+// api get comment
+
 function process_data(data) {
   let sentences = document.getElementById('sentences');
   const isDocter = checkRoleCookie("DOCTOR")
   let btnAnswer = isDocter ? `
     <button class="action__btn--item btn-mid" onclick="answer()"><i class="icofont-speech-comments"></i>Trả lời</button>
     `
-    :''
-  data.forEach( question => {
+    : ''
+  data.forEach(question => {
     sentences.innerHTML += `
     <div class="sentence">
     <div class="question">
@@ -115,7 +136,7 @@ function process_data(data) {
       <div class="action__btn">
 
       <button class="action__btn--item" id="btn-love"><i class="icofont-love"></i> Yêu thích</button>
-      `+btnAnswer+`
+      `+ btnAnswer + `
       <button class="action__btn--item"><i class="icofont-share"></i></i> Chia sẻ</button>
 
      </div>

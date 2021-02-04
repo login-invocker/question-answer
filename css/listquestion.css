@@ -122,6 +122,8 @@ body {
   border-top:  1px solid #312e2e;
   border-bottom:  1px solid #312e2e;
   padding: 3px 0px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .category {
@@ -137,14 +139,6 @@ body {
   padding: 8px 10px 8px;
 }
 
-#btn-love {
-
-}
-
-#btn-love:cl {
-
-}
-
 .btn-send {
   background-color: #007bff;
   border: none;
@@ -153,7 +147,6 @@ body {
   padding: 10px 25px;
   border-radius: 5px;
   font-weight: 600;
-  
   display: flex;
   margin: 10px auto 0;
 }
