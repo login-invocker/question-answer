@@ -62,7 +62,7 @@
     <script>
         var listQuestion = [
             {
-                "id" : 1,
+                "id" : "q1",
                 "content" : "toi bị kho tiêu",
                 "idUser" : "user01",
                 "status" : "okeeeeeee",
@@ -70,7 +70,7 @@
                 "idSpeacialist": "speacialist001"
             },
             {
-                "id" : 2,
+                "id" : "q2",
                 "content" : "toi bị đau bụng",
                 "idUser" : "user03",
                 "status" : "okeeeeeee",
@@ -78,7 +78,7 @@
                 "idSpeacialist": "speacialist001"
             },
             {
-                "id" : 3,
+                "id" : "q3",
                 "content" : "toi bị tiêu chảy",
                 "idUser" : "user01",
                 "status" : "okeeeeeee",
@@ -97,7 +97,7 @@
                     <td>${listQuestion[i]['idUser']}</td>
                     <td>${listQuestion[i]['view']}</td>
                     <td>${listQuestion[i]['status']}</td>
-                    <td><button onClick="getQuestion(${listQuestion[i]["id"]})"><i class="fas fa-eye"></i></button></td>
+                    <td><button onClick="getQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
                 </tr>
                 `
 
