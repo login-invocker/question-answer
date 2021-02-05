@@ -40,7 +40,7 @@
     <div id="container">
         <div class="card border border-secondary rounded" id="card-question-delete">
             <div class="card-header " id="card-delete-header">
-                <h4>Chắc chắn muốn xoá user này ???</h4> 
+                <h4>Chắc chắn muốn xoá question này ???</h4> 
             </div>
             <div class="card-body" id="card-delete-body">
                 <div class="row">
@@ -100,6 +100,7 @@
                     <td><button onClick="getQuestion(${listQuestion[i]["id"]})"><i class="fas fa-eye"></i></button></td>
                 </tr>
                 `
+
             }
         }
         htmlContent()
@@ -109,7 +110,7 @@
                 let content = listQuestion.filter(function(obj){
                     return obj.id === idquestion
                 })
-                // console.log(content[0]["idSpeacialist"])
+           
                 document.getElementById("card-body").innerHTML = `
                     <div>
                         <label class='form-label' for='idQuestion'> Id Question :</label>
@@ -146,7 +147,7 @@
                 `
         }
         const update = (idq) => {
-        
+                    
                     var newinfo = {
                             "id" : document.getElementById('idQuestion').value,
                             "content" : document.getElementById('contentQuestion').value,
@@ -155,10 +156,6 @@
                             "view" : document.getElementById('view').value,
                             "idSpeacialist": document.getElementById('idSpeacialist').value
                         }
-                    console.log(newinfo)
-                   
-                 
-                        
                         for(j = 0 ; j < listQuestion.length ; j ++) {
                             if(listQuestion[j]['id'] === idq) {
                                 listQuestion[j] = newinfo
