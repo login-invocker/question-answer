@@ -5,7 +5,7 @@ body {
 header {
   background-color: #007bff;
   box-shadow: 0px 0px 5px 1px #2626262b;
-
+  position: relative;
 }
 
 .header {
@@ -33,6 +33,10 @@ header {
 .header__page:hover {
   background-color: #fff;
   color: #007bff;
+}
+
+.header__logg {
+  display: block;
 }
 
 .header__logged {
@@ -116,6 +120,7 @@ header {
   box-shadow: 0px 0px 5px 1px #2626262b;
   z-index: 1000;
   display: none;
+  background-color: #fff;
 }
 
 .header__notice {
@@ -156,7 +161,7 @@ header {
   border-left: 1px solid #458ea7;
   position: absolute;
   right: 24px;
-  bottom: -20px;
+  bottom: -24px;
   z-index: 999;
   display: none;
 }
@@ -165,7 +170,17 @@ header {
   transform: translateY(-3px);
 } 
 
-.header__nav--mb {
+.header__nav--icon {
+  display: none;
+}
+
+.null {
+  background-color: rgb(255, 255, 255, 0);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
   display: none;
 }
 
@@ -177,13 +192,45 @@ header {
     box-sizing: border-box;
   }
 
-  .header__listpage {
-    display: none;
+  .null {
+    background-color: rgb(255, 255, 255, 0.3);
+    z-index: 123;
   }
 
-  .header__nav--mb {
+  .header__listpage {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #fff;
+    display: none;
+    box-shadow: 0px 0px 5px 1px #2626262b;
+    z-index: 1000;
+  }
+
+  .header__list {
+    display: block;
+    margin-top: 120px;
+  }
+
+  .header__item {
+    border-bottom: 1px dashed #bfbfc1;
+    padding: 10px 15px;
+  }
+
+  .header__page {
+    color: #000;
+    display: block;
+    padding: 0;
+  }
+
+  .header__nav--icon {
     display: block;
     font-size: 22px;
+    width: 35px;
+    height: 35px;
   }
 
   .header__username {
@@ -192,5 +239,40 @@ header {
 
   .notification {
     border: none;
+  }
+
+  .arrow {
+    right: 9px;
+    bottom: -23px;
+  }
+
+  .header__logg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 116px;
+    display: none;
+    z-index: 1000;
+  }
+
+  .header__logo--mb {
+    height: 66px;
+  }
+
+  .logg {
+    background-color: #f72b3f;
+    height: 50px;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login {
+    margin: 0 10px;
   }
 }
