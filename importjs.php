@@ -6,3 +6,4 @@
 <script src="./serviceAPI/user-service.js"></script>
 <script src="./serviceAPI/question-service.js"></script>
 <script src="./serviceAPI/admin-service.js"></script>
+<script src="./serviceAPI/comment-service.js"></script>

@@ -79,28 +79,18 @@ const updateQuestion = async (content, idUser, idSpecialist) => {
 
 // api add comment
 
-const getComment = async () => {
-  try {
-    const res = await api({
-      method: 'get',
-      url: "url get comment",
-      data: {},
-      headers
-    });
-    const comment = res.data;
-    return comment;
-  } catch (e) {
-    console.error(e);
-  }
-};
+const addComment = async (idQuestion) => {
+  const contentAnswer = document.getElementById('text-answer').value
 
-const addComment = async (a) => {
+  
   const req = {
-    "answer": `${a}`,
+    "content": contentAnswer,
+    "idQuestion": idQuestion,
+    "idUserResponse": "string"
   }
   const { data } = await api({
     method: 'post',
-    url: "user/comment",
+    url: "comment/addcomment",
     data: req,
     headers
   });
@@ -142,7 +132,7 @@ function process_data(data) {
      </div>
   </div>    <div class="addanswer show" id="show">
       <textarea name="" id="text-answer" cols="30" rows="10" placeholder="Nhập câu trả lời của bạn tại đây!"></textarea>
-      <button class="btn-send" onclick="addComment()">
+      <button class="btn-send" onclick="addComment('${question.id}')">
         <img src="assets/images/icon-send.png" alt="img">
         <span class="">Gửi câu trả lời</span>
       </button>

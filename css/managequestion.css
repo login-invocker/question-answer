@@ -1,0 +1,43 @@
+@font-face {
+    src: url('../assets/fonts/Sansita/Sansita-Regular.ttf');
+    font-family: 'Sansita';
+}
+button {
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+body {
+    position: relative;
+}
+#card {
+    width: 400px ;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    font-family: 'Sansita';
+}
+#card-header {
+    display: flex;
+    justify-content: space-between;
+}
+#card-body {
+    font-family: 'Roboto';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+}
+#card-body input {
+    border: none;
+    outline: none;
+}
+#container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+#container button {
+    width: 100%;
+}
