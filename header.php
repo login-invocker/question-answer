@@ -29,11 +29,11 @@
           </li>
         </ul>
       </div>
-      <div class="header__logg" id="logg">
+      <div class="header__logg" id="logg-mb">
         <div class="header__logo--mb">
           <a href="header__link">LOGO</a>
         </div>
-        <div class="logg">
+        <div class="logg" id="logg">
           <span><a href="login.php" class="header__link login"> Đăng nhập</a></span>
           |
           <span><a href="register.php" class="header__link login"> Đăng kí</a></span>
@@ -41,7 +41,7 @@
       </div>
       <div>
 
-        <div class="header__logged">
+        <div class="header__logged" id="logged">
           <div class="header__notification">
             <span class="notification">
               <i class="icofont-alarm"></i>
@@ -83,6 +83,8 @@
   let overlay = document.getElementById("null");
   let mb = document.getElementById("mb");
   let listpage = document.getElementById("listpage");
+  let loggmb = document.getElementById("logg-mb");
+  let logged = document.getElementById("logged");
   let logg = document.getElementById("logg");
 
   option.addEventListener("click", () => {
@@ -95,20 +97,39 @@
     document.getElementById("arrow").style.display = "none";
     document.getElementById("list").style.display = "none";
     document.getElementById("listpage").style.display = "none";
-    document.getElementById("logg").style.display = "none";
+    document.getElementById("logg-mb").style.display = "none";
     document.getElementById("null").style.display = "none";
-
   });
 
   mb.addEventListener("click", () => {
     document.getElementById("listpage").style.display = "block";
     document.getElementById("null").style.display = "block";
-    document.getElementById("logg").style.display = "block";
-
-
+    document.getElementById("logg-mb").style.display = "block";
   });
 
-  
+  function isCookiesExist(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+      begin = dc.indexOf(prefix);
+      if (begin != 0) return true;
+    } 
+    return false;
+  }
+
+  function checkLogged() {
+    let token = isCookiesExist("tokenId");
+    if (token) {
+      logg.style.display = "flex";
+      logged.style.display = "none";
+    } else {
+      logg.style.display = "none";
+      logged.style.display = "flex";
+    }
+  }
+
+  checkLogged();
 </script>
 
 </html>

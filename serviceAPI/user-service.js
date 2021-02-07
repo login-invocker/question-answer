@@ -41,7 +41,6 @@ const login = async () => {
     } catch (error) {
         $("#loginFalse").html("Sai tên tài khoản hoặc mật khẩu")
     }
-
     setCookie("tokenId", userInfo.tokenId, 7)
     setCookie("roles", userInfo.role,7)
     window.location.replace("home.php")
