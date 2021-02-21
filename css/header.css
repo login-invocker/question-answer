@@ -188,6 +188,14 @@ header {
   display: none;
 }
 
+.header__nav--icon {
+  display: none;
+}
+
+#listpage-mb {
+  display: none;
+}
+
 @media only screen and (max-width: 1300px) {
   .header {
     width: 100%;
@@ -262,6 +270,7 @@ header {
 
   .header__logo--mb {
     height: 66px;
+    display: block;
   }
 
   .logg {
@@ -278,5 +287,9 @@ header {
 
   .login {
     margin: 0 10px;
+  }
+
+  .logo {
+    display: none;
   }
 }
