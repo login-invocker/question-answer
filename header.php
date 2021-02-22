@@ -18,19 +18,20 @@
         </div>
         <a href="home.php" class="header__link logo">logo</a>
         <div class="null" id="null"></div>
-          <div class="header__listpage" id="listpage-mb">
-        <ul class="header__list">
-          <li class="header__item">
-            <a href="question.php" class="header__link header__page"> ĐẶT CÂU HỎI</a>
-          </li>
-          <li class="header__item">
-            <a href="listquestion.php" class="header__link header__page"> DANH SÁCH CÂU HỎI</a>
-          </li>
-          <li class="header__item">
-            <a href="#" class="header__link header__page"> GIỚI THIỆU</a>
-          </li>
-        </ul>
-      </div>
+        <div class="logo-mb"><a href="home.php">LOGo</a></div>
+        <div class="header__listpage" id="listpage-mb">
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="question.php" class="header__link header__page"> ĐẶT CÂU HỎI</a>
+            </li>
+            <li class="header__item">
+              <a href="listquestion.php" class="header__link header__page"> DANH SÁCH CÂU HỎI</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link header__page"> GIỚI THIỆU</a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="header__listpage" id="listpage">
@@ -55,7 +56,7 @@
           </div>
           <div class="logg" id="logg">
             <span><a href="login.php" class="header__link login"> Đăng nhập</a></span>
-            |
+             | 
             <span><a href="register.php" class="header__link login"> Đăng kí</a></span>
           </div>
         </div>
@@ -85,7 +86,7 @@
               <ul class="header__option--list" id="list">
                 <li class="header__option--item"><i class="icofont-ui-user"></i> Trang cá nhân</li>
                 <li class="header__option--item"><i class="icofont-info-circle"></i> Thông tin cá nhân</li>
-                <li class="header__option--item"><i class="icofont-logout"></i> Đăng xuất</li>
+                <li class="header__option--item" onclick="logout()"><i class="icofont-logout"></i> Đăng xuất</li>
               </ul>
             </div>
           </div>
@@ -145,6 +146,17 @@
       logg.style.display = "none";
       logged.style.display = "flex";
     }
+  }
+
+  function setCookie(name, value, days) {
+    var d = new Date;
+    d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+    document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+  }
+
+  function logout(){
+    setCookie('tokenId', '', -1);
+    window.location.replace("home.php");
   }
 
   checkLogged();
