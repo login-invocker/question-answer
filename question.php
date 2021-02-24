@@ -45,8 +45,7 @@ include('header.php');
                                     sĩ mới có thể xem.</div>
                                 <button id="button" class="btn btn-primary" onclick="return addquestion()">Đặt câu hỏi</button>
                             <!-- </form> -->
-                        </
-                        >
+                        </div>
 
 
                         <!-- <input id="formSubmit" style="width: 100%;" type="submit" class="btn btn-primary block mt-3" value="Đặt câu hỏi" onclick="addQuestion()"> -->
