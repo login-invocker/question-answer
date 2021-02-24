@@ -11,11 +11,11 @@ let headers = {
   'Content-Type': 'application/json',
 }
 const addQuestion = async (content) => {
+  const idUser = getCookie('tokenId')
   const req = {
     "content": `${content}`,
-    "idSpecialist": "stri123ng",
-    "idUser": "str11ing",
-    "status": "st123ring",
+    "idSpecialist": "0",
+    "idUser": idUser
   }
 
   const { data } = await api({
