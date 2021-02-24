@@ -160,12 +160,16 @@ require "importjs.php"
             htmlContent()
         }
         
-        const delQuestion = (iddelete) => {
+        const delQuestion = async (idQuestion) => {
+            
+            const isDelete = await deleteQuestion(idQuestion);
+            if(!isDelete) return;
+            
             document.getElementById('container').style.display = 'block'
             document.getElementById('card').style.display = 'none'
             document.getElementById('yes-delete').onclick = function() {
                 for(j = 0 ; j < listQuestion.length ; j ++) {
-                    if(listQuestion[j]['id'] === iddelete) {
+                    if(listQuestion[j]['id'] === idQuestion) {
                         listQuestion.splice(j,1);
                     }
                 }

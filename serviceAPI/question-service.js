@@ -37,7 +37,6 @@ const addQuestion = async (content) => {
 }
 
 //  raw data question 
-
 const getRawQuestion = async () => {
   try {
     const res = await api({
@@ -52,6 +51,7 @@ const getRawQuestion = async () => {
     console.error(e);
   }
 };
+
 // 
 const getQuestion = async () => {
   try {
@@ -70,7 +70,6 @@ const getQuestion = async () => {
 };
 
 // api select one question
-
 const getOneQuestion = async (id) => {
   try {
     const res = await api({
@@ -87,7 +86,6 @@ const getOneQuestion = async (id) => {
 };
 
 // api update one question
-
 const updateQuestion = async (content, idUser, idSpecialist) => {
   const req = {
     "content": `${content}`,
@@ -104,8 +102,29 @@ const updateQuestion = async (content, idUser, idSpecialist) => {
 
 }
 
-// api get comment
+// delete questions
+const deleteQuestion = async ( id ) => {
 
+  var data = JSON.stringify( { "id":id } );
+  try{
+    const response = await api({
+      method: 'delete',
+      url: 'question/deleteQuestion',
+      data,
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+    });
+    $.notify("Xóa thành công.", "success");
+    return true
+  }catch{
+    $.notify("Thử lại sau!", "error");
+    return false
+  }
+}
+
+
+// api get comment
 function process_data(data) {
   let sentences = document.getElementById('sentences');
   const isDocter = checkRoleCookie("DOCTOR")
