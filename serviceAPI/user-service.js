@@ -34,16 +34,18 @@ const login = async () => {
     })
     const dataUser = await getUserByeUserName();
 
-        userInfo = {
-            tokenId: response.data.accessToken,
-            role: dataUser.role
+        if(response.data.accessToken){
+            userInfo = {
+                tokenId: response.data.accessToken,
+                role: dataUser.role
+            }
+            setCookie("tokenId", userInfo.tokenId, 7)
+            setCookie("roles", userInfo.role,7)
+            $.notify("Đăng nhập thành công.", "success");
+            setTimeout(()=> {
+                window.location.replace("index.php")
+            }, 1000)
         }
-        setCookie("tokenId", userInfo.tokenId, 7)
-        setCookie("roles", userInfo.role,7)
-        $.notify("Đăng nhập thành công.", "success");
-        setTimeout(()=> {
-            window.location.replace("index.php")
-        }, 1000)
         
     } catch (error) {
 
