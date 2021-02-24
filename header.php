@@ -156,7 +156,7 @@
 
   function logout(){
     setCookie('tokenId', '', -1);
-    window.location.replace("index.php");
+    window.location.replace("login.php");
   }
 
   checkLogged();
