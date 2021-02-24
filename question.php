@@ -122,7 +122,10 @@ include('header.php');
 
             if(!isLogin){
                 $.notify("Cần đăng nhập để có thể đặt câu hỏi miễn phí!", "warn");
-                window.location.replace("login.php");
+                
+                setTimeout(() => {
+                    window.location.replace("login.php");
+                }, 1000);
             }
         }
     </script>
