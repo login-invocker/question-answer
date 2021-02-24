@@ -1,0 +1,2 @@
+DirectoryIndex login.php
+RewriteRule ^(([^/]+/)*[^.]+)$ /$1.php [L]
