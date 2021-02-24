@@ -25,7 +25,7 @@ const addQuestion = async (content) => {
     headers
   });
   if(data){
-    $.notify("Bạn đã gửi câu hỏi cho bác sĩ.", "success");
+    $.notify("Gửi thành công câu hỏi của bạn đang chờ được kiểm duyệt.", "success");
   }else{
     $.notify("Có lỗi xảy ra, xin thử lại lần sau!", "error");
   }

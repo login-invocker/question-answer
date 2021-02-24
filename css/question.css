@@ -222,7 +222,9 @@ svg {
     #sample {
         text-align: center;
     }
-    /* #img-contact {
-        display: none;
-    } */
+    /* tien vu */
+    #img-contact {
+        width: 0;
+    }
+
 }
