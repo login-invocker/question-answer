@@ -5,7 +5,7 @@ const register = async () => {
 
     if(pass == $("#re-pass").val()){
       
-        const response = await axios.post('http://localhost:8080/user/register', {
+        const response = await axios.post('https://secret-plateau-56191.herokuapp.com/user/register', {
             "userPass": pass,
             "userEmail": user,
             "userName": username,
@@ -28,7 +28,7 @@ const login = async () => {
     
     let userInfo = {}
     try {
-        const response = await axios.post('http://localhost:8080/user/login', {
+        const response = await axios.post('https://secret-plateau-56191.herokuapp.com/user/login', {
         "username": user,
         "password": pass
     })

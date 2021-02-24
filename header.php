@@ -18,7 +18,7 @@
         </div>
         <a href="index.php" class="header__link logo">logo</a>
         <div class="null" id="null"></div>
-        <div class="logo-mb"><a href="index.php">LOGo</a></div>
+        <div class="logo-mb"><a href="index.php">Logo</a></div>
         <div class="header__listpage" id="listpage-mb">
           <ul class="header__list">
             <li class="header__item">
