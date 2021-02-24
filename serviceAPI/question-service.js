@@ -36,6 +36,23 @@ const addQuestion = async (content) => {
   return false
 }
 
+//  raw data question 
+
+const getQuestion = async () => {
+  try {
+    const res = await api({
+      method: 'get',
+      url: "/question/list",
+      data: {},
+      headers
+    });
+    const question = res.data;
+    return question;
+  } catch (e) {
+    console.error(e);
+  }
+};
+// 
 const getQuestion = async () => {
   try {
     const res = await api({
@@ -100,7 +117,7 @@ function process_data(data) {
     sentences.innerHTML += `
     <div class="sentence">
     <div class="question">
-      <p id="question" class="question__text">${question.content}</p>
+      <p id="question" class="question__text"><a href="/detail-question/detail-question.php">${question.content}</a></p>
     </div>
 
     <div class="action">

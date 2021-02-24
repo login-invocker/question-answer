@@ -68,24 +68,13 @@
                 "status" : "okeeeeeee",
                 "view" : 12,
                 "idSpeacialist": "speacialist001"
-            },
-            {
-                "id" : "q2",
-                "content" : "toi bị đau bụng",
-                "idUser" : "user03",
-                "status" : "okeeeeeee",
-                "view" : 22,
-                "idSpeacialist": "speacialist001"
-            },
-            {
-                "id" : "q3",
-                "content" : "toi bị tiêu chảy",
-                "idUser" : "user01",
-                "status" : "okeeeeeee",
-                "view" : 62,
-                "idSpeacialist": "speacialist001"
             }
         ];
+        
+        const getData = async () => {
+            listQuestion = await getQuestion();
+        }
+        getData()
         
         function htmlContent () {
             for (i = 0 ; i < listQuestion.length ; i ++) {
@@ -138,10 +127,10 @@
                     </div>
                     <div class='row'>
                         <div class='col-6'>
-                            <button class='btn btn-primary' onClick = "update('${idquestion}')" id='sucessupdate' style='width: 100%' >Update</button>    
+                            <button class='btn btn-primary' onClick = "update(${idquestion})" id='sucessupdate' style='width: 100%' >Update</button>    
                         </div>
                         <div class='col-6'>
-                            <button class='btn btn-primary' onClick = "delQuestion('${idquestion}')" id='sucessdelete' style='width: 100%' >Delete</button>    
+                            <button class='btn btn-primary' onClick = "delQuestion(${idquestion})" id='sucessdelete' style='width: 100%' >Delete</button>    
                         </div>
                     </div>
                 `
