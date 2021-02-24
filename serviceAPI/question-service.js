@@ -16,7 +16,7 @@ const addQuestion = async (content) => {
   if(!idUser) return false
 
   const req = {
-    "content": `${content}`,
+    "content": content,
     "idSpecialist": "0",
     "idUser": idUser
   }

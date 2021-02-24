@@ -43,7 +43,7 @@ include('header.php');
                                 </div>
                                 <div id="note" class="mb-3">* Hình ảnh cá nhân của bạn hoàn toàn được bảo mật, chỉ bác
                                     sĩ mới có thể xem.</div>
-                                    <button id="button" class="btn btn-primary" onclick="return addquestion();">Đặt câu hỏi</button>
+                                    <button name='btnQuestion' id="button" class="btn btn-primary" onclick="return addquestion();">Đặt câu hỏi</button>
                             </form>
                         </div>
 
@@ -110,22 +110,33 @@ include('header.php');
             </div>
         </div>
     </div>
-    <!-- auth: Vũ Văn TIến -->
-
-            <script>
-
-                function addquestion() {
-                    let question = document.getElementById("question").value;
-                    const isLogin = addQuestion(question);
-                    if(!isLogin){
-                        $.notify("Bạn cần đăng nhập để đặt câu hỏi !!!", "warn");
-                    }
-                }
-            </script>';
-    
-<?php
+    <?php
 require "importjs.php"
 ?>
+    <!-- auth: Vũ Văn TIến -->
+<?php 
+    if(isset($_POST['btnQuestion'])) {
+        if(isset($_COOKIE['tokenId'])) {
+            echo '
+            <script>
+                function addquestion() {
+                    let question = document.getElementById("question").value;
+                    addQuestion(question);
+                    // alert("Gửi thành công câu hỏi của bạn đang chờ được kiểm duyệt .")
+                    return false;
+                }
+            </script>
+            ';
+        }else {
+            echo '<script>
+                    $.notify("Bạn cần đăng nhập để đặt câu hỏi !!!", "warn");
+                </script>';
+            header('Refresh:2; url=login.php',true, 303);
+        }
+    }
+?>
+
+
 </body>
 
 </html>
