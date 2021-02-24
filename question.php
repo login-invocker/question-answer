@@ -116,9 +116,9 @@ include('header.php');
 ?>
 
     <script>
-        function addquestion() {
+        async function addquestion() {
             let question = document.getElementById("question").value;
-            const isLogin = addQuestion(question);
+            const isLogin = await addQuestion(question);
 
             if(!isLogin){
                 $.notify("Cần đăng nhập để có thể đặt câu hỏi miễn phí!", "warn");
