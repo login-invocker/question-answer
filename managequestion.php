@@ -76,7 +76,9 @@ require "importjs.php"
         const getData = async () => {
             listQuestion = await getRawQuestion();
         }
-        getData()
+        getData().then(() => {
+
+        
 
         function htmlContent () {
             for (i = 0 ; i < listQuestion.length ; i ++) {
@@ -178,6 +180,7 @@ require "importjs.php"
         document.getElementById('close').onclick = function() {
             document.getElementById('card').style.display = 'none'
         }
+    })
     </script>
 </body>
 </html>
