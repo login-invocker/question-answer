@@ -132,10 +132,10 @@ require "importjs.php"
                     </div>
                     <div class='row'>
                         <div class='col-6'>
-                            <button class='btn btn-primary' onClick = "update(${idquestion})" id='sucessupdate' style='width: 100%' >Update</button>    
+                            <button class='btn btn-primary' onClick = "update('${idquestion}')" id='sucessupdate' style='width: 100%' >Update</button>    
                         </div>
                         <div class='col-6'>
-                            <button class='btn btn-primary' onClick = "delQuestion(${idquestion})" id='sucessdelete' style='width: 100%' >Delete</button>    
+                            <button class='btn btn-primary' onClick = "delQuestion('${idquestion})'" id='sucessdelete' style='width: 100%' >Delete</button>    
                         </div>
                     </div>
                 `
