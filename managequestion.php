@@ -87,7 +87,7 @@ require "importjs.php"
                 <tr>
                     <td>${i + 1}</td>
                     <td>${listQuestion[i]['content']}</td>
-                    <td>${listQuestion[i]['idUser']}</td>
+                    <td>${false? listQuestion[i]['idUser']: "Name User"}</td>
                     <td>${listQuestion[i]['view']}</td>
                     <td>${listQuestion[i]['status']}</td>
                     <td><button onClick="drawQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
@@ -144,7 +144,7 @@ require "importjs.php"
                     var newinfo = {
                             "id" : document.getElementById('idQuestion').value,
                             "content" : document.getElementById('contentQuestion').value,
-                            "idUser" : document.getElementById('idUser').value,
+                            // "idUser" : document.getElementById('idUser').value,
                             "status" : document.getElementById('status').value,
                             "view" : document.getElementById('view').value,
                             "idSpeacialist": document.getElementById('idSpeacialist').value
