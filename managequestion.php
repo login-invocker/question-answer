@@ -160,11 +160,11 @@ require "importjs.php"
             htmlContent()
         }
         
-        const delQuestion = async (idQuestion) => {
+        const delQuestion = (idQuestion) => {
 
             document.getElementById('container').style.display = 'block'
             document.getElementById('card').style.display = 'none'
-            document.getElementById('yes-delete').onclick = function() {
+            document.getElementById('yes-delete').onclick = async function() {
                 const isDelete = await deleteQuestion(idQuestion);
                 if(!isDelete) return;
                 
