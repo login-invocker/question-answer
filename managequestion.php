@@ -98,7 +98,8 @@ require "importjs.php"
         }
         htmlContent()
        
-        const drawQuestion = (idquestion) => {
+    })
+    const drawQuestion = (idquestion) => {
             document.getElementById("card"). style.display = "block"
                 let content = listQuestion.filter(function(obj){
                     return obj.id === idquestion
@@ -138,8 +139,7 @@ require "importjs.php"
                         </div>
                     </div>
                 `
-        }
-        const update = (idq) => {
+                const update = (idq) => {
                     
                     var newinfo = {
                             "id" : document.getElementById('idQuestion').value,
@@ -158,29 +158,30 @@ require "importjs.php"
                     document.getElementById('card').style.display = 'none'
                     document.getElementById('tbody').innerHTML = ''
                     htmlContent()
-        }
-        const delQuestion = (iddelete) => {
-            document.getElementById('container').style.display = 'block'
-            document.getElementById('card').style.display = 'none'
-            document.getElementById('yes-delete').onclick = function() {
-                for(j = 0 ; j < listQuestion.length ; j ++) {
-                    if(listQuestion[j]['id'] === iddelete) {
-                        listQuestion.splice(j,1);
                     }
-                }
-            document.getElementById('container').style.display = 'none'
-            document.getElementById('tbody').innerHTML = ''
-            htmlContent()
-            }
-            document.getElementById('no-delete').onclick = function() {
-                document.getElementById('container').style.display = 'none'
-            }
+                    
+                    const delQuestion = (iddelete) => {
+                        document.getElementById('container').style.display = 'block'
+                        document.getElementById('card').style.display = 'none'
+                        document.getElementById('yes-delete').onclick = function() {
+                            for(j = 0 ; j < listQuestion.length ; j ++) {
+                                if(listQuestion[j]['id'] === iddelete) {
+                                    listQuestion.splice(j,1);
+                                }
+                            }
+                        document.getElementById('container').style.display = 'none'
+                        document.getElementById('tbody').innerHTML = ''
+                        htmlContent()
+                        }
+                        document.getElementById('no-delete').onclick = function() {
+                            document.getElementById('container').style.display = 'none'
+                        }
 
+                    }
+                    document.getElementById('close').onclick = function() {
+                        document.getElementById('card').style.display = 'none'
+                    }
         }
-        document.getElementById('close').onclick = function() {
-            document.getElementById('card').style.display = 'none'
-        }
-    })
     </script>
 </body>
 </html>
