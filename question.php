@@ -1,3 +1,23 @@
+<?php 
+    if(isset($_POST['btnQuestion'])) {
+        if(isset($_COOKIE['tokenId'])) {
+            echo '
+            <script>
+                function addquestion() {
+                    let question = document.getElementById("question").value;
+                    addQuestion(question);
+                    return false;
+                }
+            </script>
+            ';
+        }else {
+            echo '<script>
+                    alert("Bạn cần đăng nhập để đặt câu hỏi !!!")
+                </script>';
+            header('Refresh:2; url=login.php',true, 303);
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +59,7 @@
                                 </div>
                                 <div id="note" class="mb-3">* Hình ảnh cá nhân của bạn hoàn toàn được bảo mật, chỉ bác
                                     sĩ mới có thể xem.</div>
-                                <button id="button" class="btn btn-primary" onclick="return addquestion();">Đặt câu hỏi</button>
+                                <button name='btnQuestion' id="button" class="btn btn-primary" onclick="return addquestion();">Đặt câu hỏi</button>
                             </form>
                         </div>
 
@@ -78,10 +98,10 @@
 
         <div id="contact" class="box-shadow p-3 m-3">
             <div class="row">
-                <div class="col-2">
+                <div class="col-md-2" id='col-img'>
                     <img id="img-contact" class="img-fluid" src="./assets/images/register.jpg" alt="">
                 </div>
-                <div class="col-10">
+                <div class="col-md-10">
                     <p>Hỏi bác sĩ trực tuyến và <span>nhận tư vấn y tế</span> nhanh
                         chóng cho các thắc mắc về sức khỏe của bạn.
                         Ban y tế của chúng tôi bao gồm hơn <span>1000 bác sĩ</span>
@@ -93,12 +113,10 @@
                         <div class="col-lg-6">
                             <div class="container mt-3 p-3" id="category-question">
                                 <span class="badge badge-primary"><a href="#">Bác sỹ</a></span>
-                                <span class="badge badge-primary"><a href="#">Hỏi về chăm sóc răng miệng</a></span>
+                                <span class="badge badge-primary"><a href="#">Chăm sóc răng miệng</a></span>
                                 <span class="badge badge-primary"><a href="#">Hỏi về thai nhi</a></span>
                                 <span class="badge badge-primary"><a href="#">Hỏi về da liễu</a></span>
                                 <span class="badge badge-primary"><a href="#">Hỏi về răng hàm mặt</a></span>
-
-
                             </div>
                         </div>
                     </div>
@@ -111,13 +129,13 @@
     require "importjs.php"
 ?>
 
-    <script>
+    <!-- <script>
         function addquestion() {
             let question = document.getElementById("question").value;
             addQuestion(question);
             return false;
         }
-    </script>
+    </script> -->
 </body>
 
 </html>

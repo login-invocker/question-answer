@@ -222,7 +222,8 @@ svg {
     #sample {
         text-align: center;
     }
-    /* #img-contact {
-        display: none;
-    } */
+ 
+    #img-contact {
+        width: 0;
+    }
 }

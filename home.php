@@ -9,16 +9,15 @@
 </head>
 <body>
     <h1>home</h1>
-<a href="/front-end-question-answer/question.php">question</a>
-<a href="/front-end-question-answer/login.php">login</a>
-<a href="/front-end-question-answer/register.php">register</a>
-<a href="/front-end-question-answer/specialist.php">specialist</a>
-<a href="/front-end-question-answer/specialist.php">specialist</a>
-<a href="/front-end-question-answer/specialist-manager/specialist-manager.php">specialist manager</a>
-
+    <a href="/front-end-question-answer/question.php">question</a>
+    <a href="/front-end-question-answer/login.php">login</a>
+    <a href="/front-end-question-answer/register.php">register</a>
+    <a href="/front-end-question-answer/specialist.php">specialist</a>
+    <a href="/front-end-question-answer/managequestion.php">manage question</a>
+    <a href="/front-end-question-answer/specialist-manager/specialist-manager.php">specialist manager</a>
     <script src="./vendors/jquery/jquery-2.2.4.min.js"></script>
     <script>
-
+        
     </script>
 </body>
 </html>
