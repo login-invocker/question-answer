@@ -115,7 +115,7 @@ require "importjs.php"
                     </div>
                     <div>
                         <label class='form-label' for='idUser'> User Question :</label>
-                        <input type='text' id='idUser' class='' value='${content[0]["idUser"]}'>    
+                        <input type='text' id='idUser' class='' value='Name user'>    
                     </div>
                     <div>
                         <label class='form-label' for='idSpeacialist'> Speacialist :</label>
