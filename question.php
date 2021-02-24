@@ -43,7 +43,7 @@ include('header.php');
                                 </div>
                                 <div id="note" class="mb-3">* Hình ảnh cá nhân của bạn hoàn toàn được bảo mật, chỉ bác
                                     sĩ mới có thể xem.</div>
-                                    <button name='btnQuestion' id="button" class="btn btn-primary" onclick="return addquestion();">Đặt câu hỏi</button>
+                                <button id="button" class="btn btn-primary" onclick="return addquestion();">Đặt câu hỏi</button>
                             </form>
                         </div>
 
@@ -82,10 +82,10 @@ include('header.php');
 
         <div id="contact" class="box-shadow p-3 m-3">
             <div class="row">
-                <div class="col-md-2" id='col-img'> 
+                <div class="col-2">
                     <img id="img-contact" class="img-fluid" src="./assets/images/register.jpg" alt="">
                 </div>
-                <div class="col-md-10">
+                <div class="col-10">
                     <p>Hỏi bác sĩ trực tuyến và <span>nhận tư vấn y tế</span> nhanh
                         chóng cho các thắc mắc về sức khỏe của bạn.
                         Ban y tế của chúng tôi bao gồm hơn <span>1000 bác sĩ</span>
@@ -97,7 +97,7 @@ include('header.php');
                         <div class="col-lg-6">
                             <div class="container mt-3 p-3" id="category-question">
                                 <span class="badge badge-primary"><a href="#">Bác sỹ</a></span>
-                                <span class="badge badge-primary"><a href="#">Chăm sóc răng miệng</a></span>
+                                <span class="badge badge-primary"><a href="#">Hỏi về chăm sóc răng miệng</a></span>
                                 <span class="badge badge-primary"><a href="#">Hỏi về thai nhi</a></span>
                                 <span class="badge badge-primary"><a href="#">Hỏi về da liễu</a></span>
                                 <span class="badge badge-primary"><a href="#">Hỏi về răng hàm mặt</a></span>
@@ -110,33 +110,22 @@ include('header.php');
             </div>
         </div>
     </div>
+
     <?php
-require "importjs.php"
+    require "importjs.php"
 ?>
-    <!-- auth: Vũ Văn TIến -->
-<?php 
-    if(isset($_POST['btnQuestion'])) {
-        if(isset($_COOKIE['tokenId'])) {
-            echo '
-            <script>
-                function addquestion() {
-                    let question = document.getElementById("question").value;
-                    addQuestion(question);
-                    // alert("Gửi thành công câu hỏi của bạn đang chờ được kiểm duyệt .")
-                    return false;
-                }
-            </script>
-            ';
-        }else {
-            echo '<script>
-                    $.notify("Bạn cần đăng nhập để đặt câu hỏi !!!", "warn");
-                </script>';
-            header('Refresh:2; url=login.php',true, 303);
+
+    <script>
+        function addquestion() {
+            let question = document.getElementById("question").value;
+            const isLogin = addQuestion(question);
+
+            if(!isLogin){
+                $.notify("Cần đăng nhập để có thể đặt câu hỏi miễn phí!", "warn");
+                window.location.replace("login.php");
+            }
         }
-    }
-?>
-
-
+    </script>
 </body>
 
 </html>
