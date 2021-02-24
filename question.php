@@ -111,28 +111,18 @@ include('header.php');
         </div>
     </div>
     <!-- auth: Vũ Văn TIến -->
-<?php 
-    if(isset($_POST['btnQuestion'])) {
-        if(isset($_COOKIE['tokenId'])) {
-            echo '
+
             <script>
+
                 function addquestion() {
                     let question = document.getElementById("question").value;
-                    addQuestion(question);
-                    // alert("Gửi thành công câu hỏi của bạn đang chờ được kiểm duyệt .")
-                    return false;
+                    const isLogin = addQuestion(question);
+                    if(!isLogin){
+                        $.notify("Bạn cần đăng nhập để đặt câu hỏi !!!", "warn");
+                    }
                 }
-            </script>
-            ';
-        }else {
-            echo '<script>
-                    $.notify("Bạn cần đăng nhập để đặt câu hỏi !!!", "warn");
-                </script>';
-            header('Refresh:2; url=login.php',true, 303);
-        }
-    }
-?>
-
+            </script>';
+    
 <?php
 require "importjs.php"
 ?>

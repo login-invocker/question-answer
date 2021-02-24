@@ -11,7 +11,10 @@ let headers = {
   'Content-Type': 'application/json',
 }
 const addQuestion = async (content) => {
+  
   const idUser = getCookie('tokenId')
+  if(!idUser) return false
+
   const req = {
     "content": `${content}`,
     "idSpecialist": "0",
@@ -26,10 +29,11 @@ const addQuestion = async (content) => {
   });
   if(data){
     $.notify("Gửi thành công câu hỏi của bạn đang chờ được kiểm duyệt.", "success");
+    return true
   }else{
     $.notify("Có lỗi xảy ra, xin thử lại lần sau!", "error");
   }
-
+  return false
 }
 
 const getQuestion = async () => {
