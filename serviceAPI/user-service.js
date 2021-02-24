@@ -34,11 +34,14 @@ const login = async () => {
     })
     const dataUser = await getUserByeUserName();
 
-    userInfo = {
-        tokenId: response.data.accessToken,
-        role: dataUser.role
-    }
+        userInfo = {
+            tokenId: response.data.accessToken,
+            role: dataUser.role
+        }
+        $.notify("Đăng nhập thành công.", "success");
+
     } catch (error) {
+        $.notify("Đăng nhập thất bại!", "error");
         $("#loginFalse").html("Sai tên tài khoản hoặc mật khẩu")
     }
     setCookie("tokenId", userInfo.tokenId, 7)
