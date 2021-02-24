@@ -139,7 +139,9 @@ require "importjs.php"
                         </div>
                     </div>
                 `
-                const update = (idq) => {
+        }
+
+        const update = (idq) => {
                     
                     var newinfo = {
                             "id" : document.getElementById('idQuestion').value,
@@ -181,7 +183,6 @@ require "importjs.php"
                     document.getElementById('close').onclick = function() {
                         document.getElementById('card').style.display = 'none'
                     }
-        }
     </script>
 </body>
 </html>
