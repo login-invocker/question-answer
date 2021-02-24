@@ -38,15 +38,19 @@ const login = async () => {
             tokenId: response.data.accessToken,
             role: dataUser.role
         }
+        setCookie("tokenId", userInfo.tokenId, 7)
+        setCookie("roles", userInfo.role,7)
         $.notify("Đăng nhập thành công.", "success");
-
+        setTimeout(()=> {
+            window.location.replace("index.php")
+        }, 1000)
+        
     } catch (error) {
+
         $.notify("Đăng nhập thất bại!", "error");
         $("#loginFalse").html("Sai tên tài khoản hoặc mật khẩu")
     }
-    setCookie("tokenId", userInfo.tokenId, 7)
-    setCookie("roles", userInfo.role,7)
-    window.location.replace("index.php")
+
 }
 
 const getUserByeUserName = async () => {
