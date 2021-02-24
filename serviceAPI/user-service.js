@@ -43,7 +43,7 @@ const login = async () => {
     }
     setCookie("tokenId", userInfo.tokenId, 7)
     setCookie("roles", userInfo.role,7)
-    window.location.replace("home.php")
+    window.location.replace("index.php")
 }
 
 const getUserByeUserName = async () => {
