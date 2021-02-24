@@ -88,7 +88,7 @@ require "importjs.php"
                     <td>${listQuestion[i]['idUser']}</td>
                     <td>${listQuestion[i]['view']}</td>
                     <td>${listQuestion[i]['status']}</td>
-                    <td><button onClick="getQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
+                    <td><button onClick="drawQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
                 </tr>
                 `
 
@@ -96,7 +96,7 @@ require "importjs.php"
         }
         htmlContent()
        
-        const getQuestion = (idquestion) => {
+        const drawQuestion = (idquestion) => {
             document.getElementById("card"). style.display = "block"
                 let content = listQuestion.filter(function(obj){
                     return obj.id === idquestion
