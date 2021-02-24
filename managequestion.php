@@ -77,112 +77,111 @@ require "importjs.php"
             listQuestion = await getRawQuestion();
         }
         getData().then(() => {
-
-        
-
-        function htmlContent () {
-            for (i = 0 ; i < listQuestion.length ; i ++) {
-                document.getElementById('tbody').innerHTML += 
-                `
-                <tr>
-                    <td>${i + 1}</td>
-                    <td>${listQuestion[i]['content']}</td>
-                    <td>${false? listQuestion[i]['idUser']: "Name User"}</td>
-                    <td>${listQuestion[i]['view']}</td>
-                    <td>${listQuestion[i]['status']}</td>
-                    <td><button onClick="drawQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
-                </tr>
-                `
-
-            }
-        }
         htmlContent()
-       
     })
+
+    function htmlContent () {
+        for (i = 0 ; i < listQuestion.length ; i ++) {
+            document.getElementById('tbody').innerHTML += 
+            `
+            <tr>
+                <td>${i + 1}</td>
+                <td>${listQuestion[i]['content']}</td>
+                <td>${false? listQuestion[i]['idUser']: "Name User"}</td>
+                <td>${listQuestion[i]['view']}</td>
+                <td>${listQuestion[i]['status']}</td>
+                <td><button onClick="drawQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
+            </tr>
+            `
+
+        }
+    }
+
     const drawQuestion = (idquestion) => {
-            document.getElementById("card"). style.display = "block"
-                let content = listQuestion.filter(function(obj){
-                    return obj.id === idquestion
-                })
-           
-                document.getElementById("card-body").innerHTML = `
-                    <div>
-                        <label class='form-label' for='idQuestion'> Id Question :</label>
-                        <input type='text' id='idQuestion' class='' value='${content[0]["id"]}' autofocus>    
-                    </div>
-                    <div>
-                        <label class='form-label' for='contentQuestion'> Content Question :</label>
-                        <input type='text' id='contentQuestion' class='' value='${content[0]["content"]}'>    
-                    </div>
-                    <div>
-                        <label class='form-label' for='idUser'> User Question :</label>
-                        <input type='text' id='idUser' class='' value='Name user'>    
-                    </div>
-                    <div>
-                        <label class='form-label' for='idSpeacialist'> Speacialist :</label>
-                        <input type='text' value='${content[0]['idSpeacialist']}' id='idSpeacialist'>
-                    </div>
-                    <div>
-                        <label class='form-label' for='status'> Status :</label>
-                        <input type='text' id='status' class='' value='${content[0]["status"]}'>    
-                    </div>
-                    <div>
-                        <label class='form-label' for='view'>View :</label>
-                        <input type='text' id='view' class='' value='${content[0]["view"]}'>    
-                    </div>
-                    <div class='row'>
-                        <div class='col-6'>
-                            <button class='btn btn-primary' onClick = "update('${idquestion}')" id='sucessupdate' style='width: 100%' >Update</button>    
-                        </div>
-                        <div class='col-6'>
-                            <button class='btn btn-primary' onClick = "delQuestion('${idquestion})'" id='sucessdelete' style='width: 100%' >Delete</button>    
-                        </div>
-                    </div>
-                `
+        document.getElementById("card"). style.display = "block"
+        let content = listQuestion.filter(function(obj){
+            return obj.id === idquestion
+        })
+    
+        document.getElementById("card-body").innerHTML = `
+            <div>
+                <label class='form-label' for='idQuestion'> Id Question :</label>
+                <input type='text' id='idQuestion' class='' value='${content[0]["id"]}' autofocus>    
+            </div>
+            <div>
+                <label class='form-label' for='contentQuestion'> Content Question :</label>
+                <input type='text' id='contentQuestion' class='' value='${content[0]["content"]}'>    
+            </div>
+            <div>
+                <label class='form-label' for='idUser'> User Question :</label>
+                <input type='text' id='idUser' class='' value='Name user'>    
+            </div>
+            <div>
+                <label class='form-label' for='idSpeacialist'> Speacialist :</label>
+                <input type='text' value='${content[0]['idSpeacialist']}' id='idSpeacialist'>
+            </div>
+            <div>
+                <label class='form-label' for='status'> Status :</label>
+                <input type='text' id='status' class='' value='${content[0]["status"]}'>    
+            </div>
+            <div>
+                <label class='form-label' for='view'>View :</label>
+                <input type='text' id='view' class='' value='${content[0]["view"]}'>    
+            </div>
+            <div class='row'>
+                <div class='col-6'>
+                    <button class='btn btn-primary' onClick = "update('${idquestion}')" id='sucessupdate' style='width: 100%' >Update</button>    
+                </div>
+                <div class='col-6'>
+                    <button class='btn btn-primary' onClick = "delQuestion('${idquestion}')" id='sucessdelete' style='width: 100%' >Delete</button>    
+                </div>
+            </div>
+        `
         }
 
         const update = (idq) => {
                     
-                    var newinfo = {
-                            "id" : document.getElementById('idQuestion').value,
-                            "content" : document.getElementById('contentQuestion').value,
-                            // "idUser" : document.getElementById('idUser').value,
-                            "status" : document.getElementById('status').value,
-                            "view" : document.getElementById('view').value,
-                            "idSpeacialist": document.getElementById('idSpeacialist').value
-                        }
-                        for(j = 0 ; j < listQuestion.length ; j ++) {
-                            if(listQuestion[j]['id'] === idq) {
-                                listQuestion[j] = newinfo
-                            }
-                        }
-                        
-                    document.getElementById('card').style.display = 'none'
-                    document.getElementById('tbody').innerHTML = ''
-                    htmlContent()
+            var newinfo = {
+                    "id" : document.getElementById('idQuestion').value,
+                    "content" : document.getElementById('contentQuestion').value,
+                    // "idUser" : document.getElementById('idUser').value,
+                    "status" : document.getElementById('status').value,
+                    "view" : document.getElementById('view').value,
+                    "idSpeacialist": document.getElementById('idSpeacialist').value
+                }
+                for(j = 0 ; j < listQuestion.length ; j ++) {
+                    if(listQuestion[j]['id'] === idq) {
+                        listQuestion[j] = newinfo
                     }
-                    
-                    const delQuestion = (iddelete) => {
-                        document.getElementById('container').style.display = 'block'
-                        document.getElementById('card').style.display = 'none'
-                        document.getElementById('yes-delete').onclick = function() {
-                            for(j = 0 ; j < listQuestion.length ; j ++) {
-                                if(listQuestion[j]['id'] === iddelete) {
-                                    listQuestion.splice(j,1);
-                                }
-                            }
-                        document.getElementById('container').style.display = 'none'
-                        document.getElementById('tbody').innerHTML = ''
-                        htmlContent()
-                        }
-                        document.getElementById('no-delete').onclick = function() {
-                            document.getElementById('container').style.display = 'none'
-                        }
+                }
+                
+            document.getElementById('card').style.display = 'none'
+            document.getElementById('tbody').innerHTML = ''
+            htmlContent()
+        }
+        
+        const delQuestion = (iddelete) => {
+            document.getElementById('container').style.display = 'block'
+            document.getElementById('card').style.display = 'none'
+            document.getElementById('yes-delete').onclick = function() {
+                for(j = 0 ; j < listQuestion.length ; j ++) {
+                    if(listQuestion[j]['id'] === iddelete) {
+                        listQuestion.splice(j,1);
+                    }
+                }
+            document.getElementById('container').style.display = 'none'
+            document.getElementById('tbody').innerHTML = ''
+            htmlContent()
+            }
+            document.getElementById('no-delete').onclick = function() {
+                document.getElementById('container').style.display = 'none'
+            }
 
-                    }
-                    document.getElementById('close').onclick = function() {
-                        document.getElementById('card').style.display = 'none'
-                    }
+        }
+        
+        document.getElementById('close').onclick = function() {
+            document.getElementById('card').style.display = 'none'
+        }
     </script>
 </body>
 </html>
