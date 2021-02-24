@@ -161,24 +161,24 @@ require "importjs.php"
         }
         
         const delQuestion = async (idQuestion) => {
-            
-            const isDelete = await deleteQuestion(idQuestion);
-            if(!isDelete) return;
-            
+
             document.getElementById('container').style.display = 'block'
             document.getElementById('card').style.display = 'none'
             document.getElementById('yes-delete').onclick = function() {
+                const isDelete = await deleteQuestion(idQuestion);
+                if(!isDelete) return;
+                
                 for(j = 0 ; j < listQuestion.length ; j ++) {
                     if(listQuestion[j]['id'] === idQuestion) {
                         listQuestion.splice(j,1);
                     }
                 }
-            document.getElementById('container').style.display = 'none'
-            document.getElementById('tbody').innerHTML = ''
-            htmlContent()
+                document.getElementById('container').style.display = 'none'
+                document.getElementById('tbody').innerHTML = ''
+                htmlContent()
             }
             document.getElementById('no-delete').onclick = function() {
-                document.getElementById('container').style.display = 'none'
+            document.getElementById('container').style.display = 'none'
             }
 
         }
