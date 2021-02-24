@@ -24,7 +24,7 @@ include('header.php');
                         <div id="ct-frm">
 
 
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <!-- <form action="" method="POST" enctype="multipart/form-data"> -->
                                 <h4>Hỏi đáp bác sĩ trực tuyến</h4>
                                 <div class="mb-3">
                                     <label for="question" class="form-label mt-3">
@@ -43,9 +43,10 @@ include('header.php');
                                 </div>
                                 <div id="note" class="mb-3">* Hình ảnh cá nhân của bạn hoàn toàn được bảo mật, chỉ bác
                                     sĩ mới có thể xem.</div>
-                                <button id="button" class="btn btn-primary" onclick="return addquestion();">Đặt câu hỏi</button>
-                            </form>
-                        </div>
+                                <button id="button" class="btn btn-primary" onclick="return addquestion()">Đặt câu hỏi</button>
+                            <!-- </form> -->
+                        </
+                        >
 
 
                         <!-- <input id="formSubmit" style="width: 100%;" type="submit" class="btn btn-primary block mt-3" value="Đặt câu hỏi" onclick="addQuestion()"> -->
@@ -111,7 +112,7 @@ include('header.php');
         </div>
     </div>
 
-    <?php
+<?php
     require "importjs.php"
 ?>
 
