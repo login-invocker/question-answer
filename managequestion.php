@@ -72,10 +72,10 @@
         ];
         
         const getData = async () => {
-            listQuestion = await getQuestion();
+            listQuestion = await getRawQuestion();
         }
         getData()
-        
+
         function htmlContent () {
             for (i = 0 ; i < listQuestion.length ; i ++) {
                 document.getElementById('tbody').innerHTML += 

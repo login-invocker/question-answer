@@ -38,7 +38,7 @@ const addQuestion = async (content) => {
 
 //  raw data question 
 
-const getQuestion = async () => {
+const getRawQuestion = async () => {
   try {
     const res = await api({
       method: 'get',
