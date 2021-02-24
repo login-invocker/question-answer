@@ -1,0 +1,318 @@
+@font-face {
+  src: url('../assets/fonts/Sansita/Sansita-Regular.ttf');
+  font-family: 'Sansita';
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+header {
+  background-color: #007bff;
+  box-shadow: 0px 0px 5px 1px #2626262b;
+  position: relative;
+}
+
+.logo-mb {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  height: 75px;
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.header__list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__page {
+  padding: 30px 14px;
+  font-size: 15px;
+}
+
+.header__page:hover {
+  background-color: #fff;
+  color: #007bff;
+}
+
+.header__logg {
+  display: block;
+}
+
+.header__logged {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header__user:hover {
+  color: rgb(209, 200, 200);
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header__img {
+  border-radius: 5px;
+}
+
+.icofont-alarm, .icofont-hand-drawn-down {
+  font-size: 22px;
+}
+
+.header__notification {
+  margin-right: 15px;
+  position: relative;
+  cursor: pointer;
+  width: 39px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__number {
+  background-color: rgb(247, 54, 54);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -11px;
+  right: -6px;
+  padding: 2px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.header__username {
+  margin-left: 5px;
+}
+
+.notification {
+  border-radius: 50%;
+  border: 1px solid #fff;
+  padding: 10px;
+}
+
+.header__link{
+  text-decoration: none;
+  color: #fff;
+}
+
+.login:hover {
+  color: rgb(209, 200, 200);
+}
+
+.header__option--list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  color: black;
+  width: 200px;
+  bottom: -106px;
+  right: 0;
+  border: 1px solid #458ea7;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 1px #2626262b;
+  z-index: 1000;
+  display: none;
+  background-color: #fff;
+}
+
+.header__notice {
+  padding: 0px;
+  position: absolute;
+  color: black;
+  width: 500px;
+  bottom: -106px;
+  right: 0;
+  border: 1px solid #458ea7;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 1px #2626262b;
+  display: none;
+}
+
+.header__detailed {
+  margin: 0;
+  padding: 10px;
+}
+
+.header__option--item {
+  border-bottom: 1px solid #e1e1e1;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.header__option--item:hover {
+  box-shadow: 0px 0px 5px 1px #2626262b;
+  color: rgb(68, 63, 63);
+
+}
+
+.arrow {
+  width: 15px;
+  background-color: #ffffff;
+  height: 15px;
+  transform: rotate(45deg);
+  border-top: 1px solid #458ea7;
+  border-left: 1px solid #458ea7;
+  position: absolute;
+  right: 24px;
+  bottom: -24px;
+  z-index: 999;
+  display: none;
+}
+
+.icofont-alarm {
+  transform: translateY(-3px);
+} 
+
+.header__nav--icon {
+  display: none;
+}
+
+.null {
+  background-color: rgb(255, 255, 255, 0);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  display: none;
+}
+
+.header__logo--mb {
+  display: none;
+}
+
+.header__nav--icon {
+  display: none;
+}
+
+#listpage-mb {
+  display: none;
+}
+
+@media only screen and (max-width: 1300px) {
+  .header {
+    width: 100%;
+    padding: 0px 10px;
+    height: 66px;
+    box-sizing: border-box;
+  }
+
+  .null {
+    background-color: rgb(255, 255, 255, 0.3);
+    z-index: 123;
+  }
+
+  .header__listpage {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #fff;
+    display: none;
+    box-shadow: 0px 0px 5px 1px #2626262b;
+    z-index: 1000;
+  }
+
+  .header__list {
+    display: block;
+    margin-top: 120px;
+  }
+
+  .header__item {
+    border-bottom: 1px dashed #bfbfc1;
+    padding: 10px 15px;
+  }
+
+  .header__page {
+    color: #000;
+    display: block;
+    padding: 0;
+  }
+
+  .header__nav--icon {
+    display: block;
+    font-size: 22px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .header__username {
+    display: none;
+  }
+
+  .notification {
+    border: none;
+  }
+
+  .arrow {
+    right: 9px;
+    bottom: -23px;
+  }
+
+  .header__logg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 116px;
+    display: none;
+    z-index: 1000;
+  }
+
+  .header__logo--mb {
+    height: 66px;
+    display: block;
+  }
+
+  .logg {
+    background-color: #f72b3f;
+    height: 50px;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login {
+    margin: 0 10px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logo-mb {
+    display: block; 
+  }
+
+  .logo-mb > a {
+    color: #123;
+  }
+}

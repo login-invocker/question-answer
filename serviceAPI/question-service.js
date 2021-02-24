@@ -12,10 +12,10 @@ let headers = {
 }
 const addQuestion = async (content) => {
   const req = {
-  "content": `${content}`,
-  "idSpecialist": "stri123ng",
-  "idUser": "str11ing",
-  "status": "st123ring",
+    "content": `${content}`,
+    "idSpecialist": "stri123ng",
+    "idUser": "str11ing",
+    "status": "st123ring",
   }
 
   const { data } = await api({
@@ -33,7 +33,7 @@ const getQuestion = async () => {
       url: "/question/list",
       data: {},
       headers
-  });
+    });
     const question = res.data;
     process_data(question);
     return question;
@@ -46,9 +46,13 @@ const getQuestion = async () => {
 
 const getOneQuestion = async (id) => {
   try {
-    const res = await axios.get(`http://localhost:8080/question/question?id=${id}`);
+    const res = await api({
+      method: 'get',
+      url: `/question/question?id=${id}`,
+      data: {},
+      headers
+  });
     const question = res.data;
-    process_data(question);
     return question;
   } catch (e) {
     console.error(e);
@@ -73,24 +77,7 @@ const updateQuestion = async (content, idUser, idSpecialist) => {
 
 }
 
-// api add comment
-
-const addComment = async (idQuestion) => {
-  const contentAnswer = document.getElementById('text-answer').value
-
-  
-  const req = {
-    "content": contentAnswer,
-    "idQuestion": idQuestion,
-    "idUserResponse": "string"
-  }
-  const { data } = await api({
-    method: 'post',
-    url: "comment/addcomment",
-    data: req,
-    headers
-  });
-}
+// api get comment
 
 function process_data(data) {
   let sentences = document.getElementById('sentences');
@@ -98,8 +85,8 @@ function process_data(data) {
   let btnAnswer = isDocter ? `
     <button class="action__btn--item btn-mid" onclick="answer()"><i class="icofont-speech-comments"></i>Trả lời</button>
     `
-    :''
-  data.forEach( question => {
+    : ''
+  data.forEach(question => {
     sentences.innerHTML += `
     <div class="sentence">
     <div class="question">
@@ -120,7 +107,7 @@ function process_data(data) {
       <div class="action__btn">
 
       <button class="action__btn--item" id="btn-love"><i class="icofont-love"></i> Yêu thích</button>
-      `+btnAnswer+`
+      `+ btnAnswer + `
       <button class="action__btn--item"><i class="icofont-share"></i></i> Chia sẻ</button>
 
      </div>
