@@ -31,7 +31,7 @@ include('header.php');
 
                                         <span>Chia sẻ vấn đề sức khoẻ của bạn với bác sĩ *</span>
                                     </label>
-                                    <textarea id="question" id="question" rows="3" class="box-shadow form-control"
+                                    <textarea name="question" id="question" rows="3" class="box-shadow form-control"
                                         placeholder="Hãy nói về sức khỏe của bạn với các triệu chứng, loại thuốc hiện tại, giới tính, tuổi, chiều cao và cân nặng."></textarea>
                                 </div>
                                 <div class="mb-3">
@@ -43,7 +43,7 @@ include('header.php');
                                 </div>
                                 <div id="note" class="mb-3">* Hình ảnh cá nhân của bạn hoàn toàn được bảo mật, chỉ bác
                                     sĩ mới có thể xem.</div>
-                                    <button name='btnQuestion' id="button" class="btn btn-primary" onclick="return addquestion();">Đặt câu hỏi</button>
+                                    <button id="button" class="btn btn-primary" onclick="return addquestion();">Đặt câu hỏi</button>
                             </form>
                         </div>
 
