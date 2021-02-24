@@ -15,7 +15,9 @@ var specialistManager = new Vue({
             method: 'get',
             url: "/specialist/list",
             data: {},
-            headers
+            headers: {
+                'Content-Type': 'application/json',
+            }
         }).then(specialists => {
             this.specialists = specialists.data
         })
@@ -46,7 +48,9 @@ var specialistManager = new Vue({
                 method: 'post',
                 url: "/specialist/addspecialist",
                 data: reqData,
-                headers
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             }).then(response => {
                 window.location.reload()
             })
@@ -56,7 +60,9 @@ var specialistManager = new Vue({
                 method: 'delete',
                 url: "/specialist/remove",
                 data: {"id": this.specialist.id},
-                headers
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             }).then(data => {
                 window.location.reload()
             })
@@ -68,7 +74,9 @@ var specialistManager = new Vue({
                 method: 'put',
                 url: "/specialist",
                 data: speacialist,
-                headers
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             }).then(window.location.reload())
         }
     } 
