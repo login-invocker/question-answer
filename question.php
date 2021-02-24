@@ -6,6 +6,7 @@
                 function addquestion() {
                     let question = document.getElementById("question").value;
                     addQuestion(question);
+                    alert("Gửi thành công câu hỏi của bạn đang chờ được kiểm duyệt .")
                     return false;
                 }
             </script>
