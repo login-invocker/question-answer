@@ -10,7 +10,7 @@ const register = async () => {
             "userEmail": user,
             "userName": username,
         })
-        console.log(response)
+
         if (response.code  === 201 ) {
             alert('Email đã được đăng ký !')
         } else {
@@ -31,12 +31,12 @@ const login = async () => {
         const response = await axios.post('https://secret-plateau-56191.herokuapp.com/user/login', {
         "username": user,
         "password": pass
-    })
-    let dataUser = await getUserByeUserName() 
+        })
+        let dataUser = await getUserByeUserName() 
         if(dataUser.role){
             dataUser = await getUserByeUserEmail()
         }
-
+        console.log(dataUser)
         if(response.data.accessToken){
             userInfo = {
                 tokenId: response.data.accessToken,
@@ -49,7 +49,7 @@ const login = async () => {
                 window.location.replace("index.php")
             }, 1000)
         }
-        
+    
     } catch (error) {
 
         $.notify("Đăng nhập thất bại!", "error");
