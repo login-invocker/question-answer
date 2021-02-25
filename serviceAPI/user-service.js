@@ -32,11 +32,11 @@ const login = async () => {
         "username": user,
         "password": pass
         })
-        let dataUser = await getUserByeUserName() 
-        if(dataUser.role){
-            dataUser = await getUserByeUserEmail()
+        let dataUser = await getUserByeUserName(user) 
+        if(!dataUser){
+            dataUser = await getUserByeUserEmail(user)
         }
-        console.log(dataUser)
+
         if(response.data.accessToken){
             userInfo = {
                 tokenId: response.data.accessToken,
@@ -58,8 +58,7 @@ const login = async () => {
 
 }
 
-const getUserByeUserName = async () => {
-    let userName = $("#email").val()
+const getUserByeUserName = async (userName) => {
 
     const responseData = await api({
         method: 'get',
@@ -70,9 +69,8 @@ const getUserByeUserName = async () => {
     return responseData.data
 }
 
-const getUserByeUserEmail = async () => {
-    let userName = $("#email").val()
-
+const getUserByeUserEmail = async (userName) => {
+    
     const responseData = await api({
         method: 'get',
         url: `/user/email/${userName}`,
