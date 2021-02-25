@@ -32,7 +32,10 @@ const login = async () => {
         "username": user,
         "password": pass
     })
-    const dataUser = await getUserByeUserName();
+    let dataUser = await getUserByeUserName() 
+        if(dataUser.role){
+            dataUser = await getUserByeUserEmail()
+        }
 
         if(response.data.accessToken){
             userInfo = {
@@ -56,6 +59,18 @@ const login = async () => {
 }
 
 const getUserByeUserName = async () => {
+    let userName = $("#email").val()
+
+    const responseData = await api({
+        method: 'get',
+        url: `/user/${userName}`,
+        data: {},
+        headers
+    });
+    return responseData.data
+}
+
+const getUserByeUserEmail = async () => {
     let userName = $("#email").val()
 
     const responseData = await api({
