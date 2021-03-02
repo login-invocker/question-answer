@@ -123,7 +123,10 @@ const deleteQuestion = async ( id ) => {
   }
 }
 
-
+// open detai Question 
+const detaiQuestion = async(id) => {
+  window.location.replace("detail-question/detail-question.php?id="+ id);
+}
 // api get comment
 function process_data(data) {
   let sentences = document.getElementById('sentences');
@@ -136,7 +139,7 @@ function process_data(data) {
     sentences.innerHTML += `
     <div class="sentence">
     <div class="question">
-      <p id="question" class="question__text"><a href="/detail-question/detail-question.php">${question.content}</a></p>
+      <p id="question" class="question__text"><a onclick="detaiQuestion('${question.id}')" href="#" >${question.content}</a></p>
     </div>
 
     <div class="action">
@@ -154,7 +157,11 @@ function process_data(data) {
 
       <button class="action__btn--item" id="btn-love"><i class="icofont-love"></i> Yêu thích</button>
       `+ btnAnswer + `
-      <button class="action__btn--item"><i class="icofont-share"></i></i> Chia sẻ</button>
+      <button class="action__btn--item"><i class="icofont-share"></i></i> 
+
+      <div class="fb-share-button" data-href="https://question-answer.invocker.repl.co/listquestion.php/${question.id}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fquestion-answer.invocker.repl.co%2Flistquestion.php&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+
+        </button>
 
      </div>
   </div>    <div class="addanswer show" id="show">

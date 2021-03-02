@@ -1,3 +1,6 @@
+<?php
+include('./header.php');
+?>
 
 <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="./detail-question.css"/>
@@ -5,7 +8,7 @@
 <div id="app">
   <div class="container">
     <div class="back-to-list-q">
-    < <a class="ck" href= "back">Quay lại </a>
+    <a class="ck" v-bind:href="doman + '/listquestion.php'">Quay lại </a>
     </div>
     <div class="row">
       <div class="col-sm-8">
