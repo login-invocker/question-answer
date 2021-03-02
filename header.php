@@ -36,6 +36,13 @@
 
       <div class="header__listpage" id="listpage">
         <ul class="header__list">
+        
+        <li class="header__item">
+            <a href="manageuser.php" class="header__link header__page"> QUẢN LÝ USER</a>
+          </li>
+          <li class="header__item">
+            <a href="managequestion.php" class="header__link header__page"> QUẢN LÝ CÂU HỎI</a>
+          </li>
           <li class="header__item">
             <a href="question.php" class="header__link header__page"> ĐẶT CÂU HỎI</a>
           </li>

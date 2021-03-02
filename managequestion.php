@@ -1,3 +1,6 @@
+<?php
+include('header.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +13,11 @@
     hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 <body>
-    <div class="bg-primary p-3 text-white" style="margin: 0;">
+    <br>
+    <div class="bg-warring " style="margin: 0;">
         <h3>Manager Questions</h3>
     </div>
+    <br>
     <table class="table" style="margin: 0;">
         <thead id="thedh">
             <th>No</th>
@@ -102,7 +107,7 @@ require "importjs.php"
         let content = listQuestion.filter(function(obj){
             return obj.id === idquestion
         })
-    
+
         document.getElementById("card-body").innerHTML = `
             <div>
                 <label class='form-label' for='idQuestion'> Id Question :</label>
@@ -122,7 +127,15 @@ require "importjs.php"
             </div>
             <div>
                 <label class='form-label' for='status'> Status :</label>
-                <input type='text' id='status' class='' value='${content[0]["status"]}'>    
+                <div class="d-flex justify-content-between">
+                    <input type="radio" id="male" class="status" ${content[0].status === 'APPROVED'? 'checked': ''} name="status" value="APPROVED">
+                    <label for="male">APPROVED</label><br>
+                    <input type="radio" id="female" name="status" class="status" ${content[0].status === 'UNAPPROVED'? 'checked': ''}  value="UNAPPROVED">
+                    <label for="female">UNAPPROVED</label><br>
+                    <input type="radio" id="other" name="status" class="status" ${content[0].status === 'DONE'? 'checked': ''}  value="DONE">
+                    <label for="other">DONE</label> 
+                </div>
+                 
             </div>
             <div>
                 <label class='form-label' for='view'>View :</label>

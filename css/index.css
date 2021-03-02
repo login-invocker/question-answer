@@ -1,0 +1,119 @@
+@font-face {
+    src: url('../assets/fonts/proxima/Proxima\ Nova\ Black.otf');
+    font-family: 'Proxima';
+  }
+#header {
+    /* height: 100vh; */
+    background-image: url('https://www.doctors.net.uk/_resources/img/login.png');
+    background-position: center;
+    background-size: cover;
+    padding-top: 23vh;
+}
+#textheader {
+    /* height: 60vh; */
+    font-family: 'Proxima';
+    color: azure;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+#linkLogin {
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 10px 25px;
+    border: 2px solid white;
+}
+#linkLogin :hover{
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgb(241, 49, 49);
+    padding: 10px 25px;
+    border: 2px solid rgba(255, 255, 255,.4);
+}
+#newtxt {
+    /* height: 40vh; */
+    background-image: url('https://m3-europe-res.cloudinary.com/image/upload/q_auto,f_auto/v1608112111/stock/graphics/covid-login-banner_wzqjno.jpg');
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid rgba(255, 255, 255,.5);
+}
+#newtxt h3 {
+    color: #95b8c6;
+}
+
+#linknew {
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    color:#95b8c6;
+    padding: 10px 25px;
+    border: 2px solid #95b8c6;
+    font-style: normal;
+}
+main {
+    /* height: 85vh; */
+    text-align: center;
+    font-family: sans-serif;
+}
+#content {
+    margin-top: 60px;
+}
+#content a{
+    /* background-color: #ededed; */
+    border-radius: 100%;
+}
+#content i {
+    font-size: 40px;
+    color: black;
+}
+.col-header {
+    margin-top: 30px;
+}
+#contact {
+    background-color: #eeeeee;
+    text-align: center;
+}
+#contact-header img {
+    width: 150px;
+}
+#contact-header span {
+    font-size: 24px;
+    color: #53add1;
+}
+footer {
+    background-color: #4c4c4b;
+}
+#footer-header img {
+    height: 70px;
+}
+#footer-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+}
+#footer-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+#footer-bottom li{
+    color: white;
+    font-size: 12px;
+}
+#footer-bottom a{
+    color: white;
+    font-size: 14px;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    padding:0 5px;
+ 
+}
+ul li:not(:last-child) {
+    border-right: 1px solid #808a80;
+}
