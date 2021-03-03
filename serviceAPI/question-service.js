@@ -13,7 +13,7 @@ let headers = {
 
 const addQuestion = async (content) => {
 
-  const idUser = getCookie('tokenId')
+  const idUser = getCookie('idU')
   if (!idUser) return false
 
   const req = {
@@ -94,15 +94,20 @@ const updateQuestion = async (content, idUser, idSpecialist) => {
 
 const deleteQuestion = async (id) => {
 
-  const req = {
-    "id": id,
+  try{
+    const req = {
+      "id": id,
+    }
+    const { data } = await api({
+      method: 'delete',
+      url: "question/deleteQuestion",
+      data: req,
+      headers
+    });
+    return true
+  }catch{
+    return false
   }
-  const { data } = await api({
-    method: 'post',
-    url: "question/deleteQuestion",
-    data: req,
-    headers
-  });
 }
 
 

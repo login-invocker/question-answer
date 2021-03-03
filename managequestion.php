@@ -65,7 +65,7 @@ include('header.php');
     </div>
 
     <script>
-        var listQuestion = [
+        let listQuestion = [
             {
                 "id" : "q1",
                 "content" : "toi bị kho tiêu",
@@ -84,19 +84,22 @@ include('header.php');
     })
 
     function htmlContent () {
-        for (i = 0 ; i < listQuestion.length ; i ++) {
-            document.getElementById('tbody').innerHTML += 
-            `
-            <tr>
-                <td>${i + 1}</td>
-                <td>${listQuestion[i]['content']}</td>
-                <td>${false? listQuestion[i]['idUser']: "Name User"}</td>
-                <td>${listQuestion[i]['view']}</td>
-                <td>${listQuestion[i]['status']}</td>
-                <td><button onClick="drawQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
-            </tr>
-            `
-
+        for (let i = 0 ; i < listQuestion.length ; i ++) {
+            
+            const idUser = listQuestion[i]["idUser"]
+            getUserByID(idUser).then( userQ => {
+                document.getElementById('tbody').innerHTML += 
+                    `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${listQuestion[i]['content']}</td>
+                        <td>${userQ? userQ.userName + " / " + userQ.userEmail: "Lỗi xảy ra khi lấy thông tin user"}</td>
+                        <td>${listQuestion[i]['view']}</td>
+                        <td>${listQuestion[i]['status']}</td>
+                        <td><button onClick="drawQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
+                    </tr>
+                    `
+                })
         }
     }
 

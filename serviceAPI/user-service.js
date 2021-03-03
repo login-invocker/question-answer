@@ -46,10 +46,13 @@ const login = async () => {
         if(response.data.accessToken){
             userInfo = {
                 tokenId: response.data.accessToken,
-                role: dataUser.role
+                role: dataUser.role,
+                id: dataUser.id
             }
             setCookie("tokenId", userInfo.tokenId, 7)
             setCookie("roles", userInfo.role,7)
+            setCookie("idU", userInfo.id,7)
+
             $.notify("Đăng nhập thành công.", "success");
             setTimeout(()=> {
                 window.location.replace("index.php")
@@ -84,6 +87,20 @@ const getUserByeUserEmail = async (userName) => {
         headers
     });
     return responseData.data
+}
+
+const getUserByID = async (id) => {
+    try{    
+    const responseData = await api({
+        method: 'post',
+        url: `/user/id`,
+        data: {"id": id},
+        headers
+    });
+    return responseData.data
+    }catch{
+        return false
+    }
 }
 
 
