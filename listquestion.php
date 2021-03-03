@@ -11,6 +11,7 @@ include('header.php');
   <title>Danh sách câu hỏi</title>
   <link rel="stylesheet" href="css/listquestion.css">
   <link rel="stylesheet" href="assets/icofont/icofont.min.css">
+  <link href="css/pagination.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -18,8 +19,9 @@ include('header.php');
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=472501510451429&autoLogAppEvents=1" nonce="w4uwdNqq"></script>
   <main>
     <div class="page">
-
-      <div id="sentences" class="sentences">
+      <div id="page">
+          <div id="sentences" class="sentences">
+          </div>
       </div>
       <div class="category" id="app">
         <h2 class="category__title">Chọn câu hỏi về loại khoa</h2>

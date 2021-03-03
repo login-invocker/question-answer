@@ -10,7 +10,8 @@ new Vue({
       return {
         question: {},
         comments: [],
-        doman: "https://question-answer.invocker.repl.co"
+        doman: "https://question-answer.invocker.repl.co",
+        userQ: {}
       }
     },
     mounted () {
@@ -22,13 +23,16 @@ new Vue({
         api
         .post('/question/question',{"id": id})
         .then(response => {
-            const question = {
-                content: response.data.content,
-                id: response.data.id
-            }
+            const question = response.data
+
+            // get user of question
+            api.post('/user/id', {"id": question.idUser}).then( user => {
+              this.userQ = user.data
+            })
+          
             // lay khoa cua cau hoi
             axios
-            .get('./spcealist.json', {id: question.id})
+            .get('./spcealist.json', {id: question.idSpecialist})
             .then(resSpecialist => {
                 question.nameSpecialist = resSpecialist.data.name
                 

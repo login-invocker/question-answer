@@ -13,7 +13,7 @@ include('./header.php');
     <div class="row">
       <div class="col-sm-8">
         <div class="info-user">
-          Tùng 20 tuổi đã hỏi:
+          {{userQ.userName}} / {{userQ.userEmail}} Đã hỏi:
         </div>
         <br>
         <!-- Question -->

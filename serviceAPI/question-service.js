@@ -140,9 +140,17 @@ const getQuestion = async (checkDoctor) => {
       headers
     });
     const question = res.data;
-    process_data(question);
+    $('#page').pagination({
+      dataSource: question,
+      showGoInput: true,
+      showGoButton: true,
+      pageSize: 5,
+      callback: function(data, pagination) {
+        process_data(data);  
+      }
+    })
     await checkDoctor();
-    await checkCommented();
+    checkCommented();
     return question;
   } catch (e) {
     console.error(e);
@@ -171,13 +179,13 @@ const detaiQuestion = async(id) => {
 function process_data(data) {
   let sentences = document.getElementById('sentences');
   let i = 0;
-
+  let showQuestions = ""
   data.forEach(question => {
-    sentences.innerHTML += `
+    showQuestions += `
     <div class="sentence">
   <div class="question">
     <p id="question" class="question__text"><a onclick="detaiQuestion('${question.id}')"
-        href="#">${question.content}</a></p>
+        href="#">${question.content.length < 156?question.content: question.content.slice(0, 156) + "... Xem thêm"}</a></p>
   </div>
 
   <div class="action">
@@ -187,7 +195,7 @@ function process_data(data) {
       </div>
       <div class="action__view--number">
         <i class="fas fa-heart"></i>
-        33 lượt xem
+        ${question.view} lượt xem
       </div>
     </div>
 
@@ -233,6 +241,8 @@ function process_data(data) {
       `;
     i++;
   });
+  // inner html
+  sentences.innerHTML = showQuestions 
 }
 
 function checkCommented() {

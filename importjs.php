@@ -2,6 +2,7 @@
 <script src="./vendors/axios.min.js"></script>
 <script src="./vendors/moment.js"></script>
 <script src="./vendors/notify.min.js"></script>
+<script src="./vendors/pagination.min.js"></script>
 
 <!-- api -->
 <script src="./serviceAPI/config/config.js"></script>
