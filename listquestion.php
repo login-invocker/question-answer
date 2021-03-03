@@ -14,36 +14,46 @@ include('header.php');
 </head>
 
 <body>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=472501510451429&autoLogAppEvents=1" nonce="w4uwdNqq"></script>  <main>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=472501510451429&autoLogAppEvents=1" nonce="w4uwdNqq"></script>
+  <main>
     <div class="page">
 
       <div id="sentences" class="sentences">
       </div>
-      <div class="category">
+      <div class="category" id="app">
         <h2 class="category__title">Chọn câu hỏi về loại khoa</h2>
         <div class="category__list">
-          <span class="category__item">Da lieu</span>
-          <span class="category__item">Xuong khop</span>
-          <span class="category__item">Dong y</span>
-          <span class="category__item">Tay hoc</span>
-          <span class="category__item">Dong y</span>
-          <span class="category__item">Tay hoc</span>
+          <span class="category__item" v-for="(specialist, index) in specialists">{{specialist.name}}</span>
+
         </div>
       </div>
 
     </div>
   </main>
 </body>
-<?php
-require "importjs.php"
-?>
-<script>
-  getQuestion();
 
-  function answer() {
-    document.getElementById("show").style.display = "block";
+<script>
+  function answer(id) {
+    document.getElementById("show" + `${id}`).style.display = "block";
+  }
+
+  getQuestion(checkDoctor);
+
+  function checkDoctor() {
+    let btn = document.getElementsByClassName("action__btn").length;
+    let btnMid = document.getElementsByClassName("btn-mid");
+    const isDocter = checkRoleCookie("DOCTOR");
+
+    if (!isDocter) {
+      for (let i = 0; i < btn; i++) {
+        btnMid[i].style.display = "none";
+      }
+    }
   }
 </script>
+
+<script src="./vendors/vue.js"></script>
+<script src="./specialist-manager/specialist-manager.js"></script>
 
 </html>

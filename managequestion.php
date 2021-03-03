@@ -63,9 +63,7 @@ include('header.php');
             </div>
         </div>
     </div>
-<?php
-require "importjs.php"
-?>
+
     <script>
         var listQuestion = [
             {

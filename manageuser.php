@@ -1,3 +1,6 @@
+<?php
+include('header.php');
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +11,7 @@
     hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 <body>
+<br>
    <marquee behavior="" direction="" class="p-3 bg-primary text-white">
         <h3 class="" id="header">
             User Management
@@ -42,7 +46,4 @@
             </div>
         </div>
     </div>
-    <?php
-require "importjs.php"
-?>
 </body>

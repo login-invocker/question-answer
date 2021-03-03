@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/icofont/icofont.min.css">
-  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="./css/header.css">
 </head>
 
 <body>
@@ -147,7 +147,7 @@
   function checkLogged() {
     let token = isCookiesExist("tokenId");
     if (token) {
-      logg.style.display = "flex";
+      // logg.style.display = "flex";
       logged.style.display = "none";
     } else {
       logg.style.display = "none";
@@ -155,18 +155,18 @@
     }
   }
 
-  function setCookie(name, value, days) {
-    var d = new Date;
-    d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
-    document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
-  }
-
   function logout(){
-    setCookie('tokenId', '', -1);
+    delete_cookie('tokenId');
+    delete_cookie('roles');
+
     window.location.replace("login.php");
   }
 
-  checkLogged();
-</script>
 
+  checkLogged();
+  
+</script>
+<?php
+require "importjs.php"
+?>
 </html>

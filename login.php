@@ -4,6 +4,7 @@ include('header.php');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@ include('header.php');
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-
     hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
+
 <body id="body">
     <div class="container">
         <div id="container">
@@ -35,24 +37,24 @@ include('header.php');
                                 </div>
 
                                 <!-- submit -->
-                                <input id="sub" onClick= "login()" type="button" class="btn btn-dark login-btn mb-2" value="Đăng Nhập">
+                                <input id="sub" onClick="login()" type="button" class="btn btn-dark login-btn mb-2" value="Đăng Nhập">
                                 <div id="loginFalse"></div>
                                 <button class="btn btn-primary"><a href="#" class="text-white">
-                                    <i class="fab fa-google-plus-square"></i> &nbsp; Đăng nhập bằng google</a></button>
-                                
+                                        <i class="fab fa-google-plus-square"></i> &nbsp; Đăng nhập bằng google</a></button>
+
                                 <div>
                                     <a href="#">
                                         <span>
                                             Quên mật khẩu ?
                                         </span>
                                     </a>
-                                    
-                                <div>
-                                    <a href="register.php">
-                                        <span>Chưa có tài khoản ? Đăng ký ở đây</span>
-                                    </a>
-                                </div>
-                            
+
+                                    <div>
+                                        <a href="register.php">
+                                            <span>Chưa có tài khoản ? Đăng ký ở đây</span>
+                                        </a>
+                                    </div>
+
                             </form>
 
 
@@ -63,9 +65,7 @@ include('header.php');
         </div>
     </div>
 
-<?php
-require "importjs.php"
-?>
-   
+
 </body>
+
 </html>

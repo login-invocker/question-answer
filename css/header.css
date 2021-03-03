@@ -24,7 +24,7 @@ header {
 
 .header {
   height: 75px;
-  width: 1200px;
+  width: 1110px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -47,6 +47,7 @@ header {
 .header__page:hover {
   background-color: #fff;
   color: #007bff;
+  text-decoration: none;
 }
 
 .header__logg {
@@ -61,6 +62,7 @@ header {
 
 .header__user:hover {
   color: rgb(209, 200, 200);
+  text-decoration: none;
 }
 
 .header__user {
@@ -118,6 +120,7 @@ header {
 
 .login:hover {
   color: rgb(209, 200, 200);
+  text-decoration: none;
 }
 
 .header__option--list {
@@ -164,7 +167,7 @@ header {
 .header__option--item:hover {
   box-shadow: 0px 0px 5px 1px #2626262b;
   color: rgb(68, 63, 63);
-
+  text-decoration: none;
 }
 
 .arrow {
@@ -211,7 +214,19 @@ header {
   display: none;
 }
 
-@media only screen and (max-width: 1300px) {
+a{
+  text-decoration: none;
+}
+
+.logg {
+  display: block;
+}
+
+ul li:not(:last-child) {
+  border-right: none;
+}
+
+@media only screen and (max-width: 1110px) {
   .header {
     width: 100%;
     padding: 0px 10px;
@@ -315,4 +330,13 @@ header {
   .logo-mb > a {
     color: #123;
   }
+
+  ul li:not(:last-child) {
+    border-right: none;
+  }
+
+  ul li {
+    display: block;
+  }
+
 }

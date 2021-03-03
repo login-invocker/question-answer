@@ -111,10 +111,6 @@ include('header.php');
         </div>
     </div>
 
-<?php
-    require "importjs.php"
-?>
-
     <script>
         async function addquestion() {
             let question = document.getElementById("question").value;

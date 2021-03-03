@@ -67,8 +67,6 @@ include('header.php');
             </div>
         </div>
     </div>
-<?php
-require "importjs.php"
-?>
+
 </body>
 </html>
