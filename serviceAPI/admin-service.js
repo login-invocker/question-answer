@@ -187,9 +187,11 @@ if(window.location.href.match("manageuser")){
 loadUsers()
 }
 
-const btnClose =  document.getElementById('close')
-    if(btnClose){
+$(document).ready(() => {
+    const btnClose =  document.getElementById('close')
+
+    if(btnClose)
     btnClose.onclick = () => { 
         document.getElementById('card').style.display = 'none' 
     } 
-}
+})
