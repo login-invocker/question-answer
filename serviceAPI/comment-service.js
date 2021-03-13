@@ -4,14 +4,16 @@ const getCommentByQuestion = async () => {
 
 // api add comment
 
-const addComment = async (idQuestion, id) => {
+const addComment = async (idQuestion, id, idResponse) => {
   const contentAnswer = document.getElementById(`text-answer${id}`).value;
+  const idUser = getCookie('idU')
+
   try {
     const req = {
       "content": contentAnswer,
       "idQuestion": idQuestion,
-      "idUserResponse": "string",
-      "idUser": "string",
+      "idUserResponse": idResponse,
+      "idUser": idUser,
     }
     const { data } = await api({
       method: 'post',
@@ -19,8 +21,11 @@ const addComment = async (idQuestion, id) => {
       data: req,
       headers
     });
+    $.notify("Gửi câu trả lời thành công.", "success");
+    document.getElementById("show" + `${id}`).style.display = "none";
+
   } catch (e) {
-    console.error(e);
+    $.notify("Gửi câu trả Thất bại.", "error");
   }
 }
 

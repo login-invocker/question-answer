@@ -34,8 +34,8 @@ include('./header.php');
               <img src="../assets/images/register.jpg" alt="anhbacsi" class="answer__img">
             </div>
             <div class="answer_info">
-              <p class="answer__name">{{comment.user.full_name}}</p>
-              <p class="answer__name">{{comment.user.specialist}}</p>
+              <!-- <p class="answer__name">{{comment.user.full_name}}</p> -->
+              <!-- <p class="answer__name">{{comment.user.specialist}}</p> -->
               <p id="answer" class="answer__text">{{comment.content}}</p>
             </div>
           </div>

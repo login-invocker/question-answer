@@ -65,18 +65,14 @@ const getOneQuestion = async (id) => {
     const question = res.data;
     return question;
   } catch (e) {
-    console.error(e);
+    $.notify("Có lỗi xảy ra, không thể lấy dữ liệu!", "error");
   }
 };
 
 // api update one question
-const updateQuestion = async (content, idUser, idSpecialist) => {
+const updateQuestion = async (question) => {
   try {
-    const req = {
-      "content": `${content}`,
-      "idSpecialist": `${idUser}`,
-      "idUser": `${idSpecialist}`,
-    }
+    const req = question
 
     const { data } = await api({
       method: 'put',
@@ -84,10 +80,10 @@ const updateQuestion = async (content, idUser, idSpecialist) => {
       data: req,
       headers
     });
+    $.notify("update Câu hỏi thành công", "success");
   } catch (e) {
-    console.error(e);
+    $.notify("Có lỗi xảy ra, không thể update!", "error");
   }
-
 }
 
 // api delete question
@@ -140,8 +136,10 @@ const getQuestion = async (checkDoctor) => {
       headers
     });
     const question = res.data;
+    const questionMap = question.filter( data => data.status === "APPROVED");
+
     $('#page').pagination({
-      dataSource: question,
+      dataSource: questionMap,
       showGoInput: true,
       showGoButton: true,
       pageSize: 5,
@@ -149,9 +147,10 @@ const getQuestion = async (checkDoctor) => {
         process_data(data);  
       }
     })
+
     await checkDoctor();
     checkCommented();
-    return question;
+    return questionMap;
   } catch (e) {
     console.error(e);
   }
@@ -177,6 +176,7 @@ const detaiQuestion = async(id) => {
 
 // api get comment
 function process_data(data) {
+
   let sentences = document.getElementById('sentences');
   let i = 0;
   let showQuestions = ""
@@ -222,7 +222,7 @@ function process_data(data) {
   <div class="addanswer show" id="show${i}">
     <textarea name="" class="text-answer" id="text-answer${i}" cols="30" rows="10"
       placeholder="Nhập câu trả lời của bạn tại đây!"></textarea>
-    <button class="btn-send" onclick="addComment('${question.id}', ${i})">
+    <button class="btn-send" onclick="addComment('${question.id}', ${i}, '${question.idUser}')">
       <img src="assets/images/icon-send.png" alt="img">
       <span class="">Gửi câu trả lời</span>
     </button>
@@ -254,5 +254,36 @@ function checkCommented() {
     if (text[i].textContent == "") {
       answer[i].style.display = "none";
     }
+  }
+}
+
+
+const findBySpecalist = async idSpecialist => {
+  try {
+    const res = await api({
+      method: 'post',
+      url: "/question/id_specialist",
+      data: { "idSpecialist" : idSpecialist },
+      headers
+    });
+    const question = res.data;
+    const questionMap = question.filter( data => data.status === "APPROVED");
+    if(questionMap.length < 1) return  $.notify("Không có dữ liệu cho danh mục này", "warning");
+
+
+    $('#page').pagination({
+      dataSource: questionMap,
+      showGoInput: true,
+      showGoButton: true,
+      pageSize: 5,
+      callback: function(data, pagination) {
+        process_data(data);  
+      }
+    })
+
+    $.notify("Lấy Câu hỏi thành công", "success");
+    return question;
+  } catch (e) {
+    $.notify("Có lỗi xảy ra, xin thử lại lần sau!", "error");
   }
 }

@@ -3,6 +3,7 @@
 <script src="./vendors/moment.js"></script>
 <script src="./vendors/notify.min.js"></script>
 <script src="./vendors/pagination.min.js"></script>
+<script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 
 <!-- api -->
 <script src="./serviceAPI/config/config.js"></script>

@@ -70,14 +70,17 @@ var specialistManager = new Vue({
         updateSpecialist: function() {
             const nameSpecialist = document.getElementById('name-specialist').value
               const speacialist = {"id": this.specialist.id, "name": nameSpecialist}
-            api({
+                api({
                 method: 'put',
                 url: "/specialist",
                 data: speacialist,
                 headers: {
                     'Content-Type': 'application/json',
                 }
-            }).then(window.location.reload())
+            })
+            .then(() => {
+                window.location.reload()
+            })
         }
     } 
 })

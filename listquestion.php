@@ -26,8 +26,7 @@ include('header.php');
       <div class="category" id="app">
         <h2 class="category__title">Chọn câu hỏi về loại khoa</h2>
         <div class="category__list">
-          <span class="category__item" v-for="(specialist, index) in specialists">{{specialist.name}}</span>
-
+          <span class="category__item" v-for="(specialist, index) in specialists"><a href="#" v-on:click="findBySpecalist(specialist.id)">{{specialist.name}}</a></span>
         </div>
       </div>
 

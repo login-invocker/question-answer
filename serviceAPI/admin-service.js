@@ -18,7 +18,7 @@ const loadUsers = async () => {
     const users = await getUsersApi();
     for ( i = 0 ; i < users.length ; i++) {
         document.getElementById("tbody").innerHTML +=
-        "<td>"+(i+1)+"</td><td>"+
+        "<tr><td>"+(i+1)+"</td><td>"+
         users[i]["userName"]+
         "</td><td>"+users[i]["userEmail"]+
         "</td><td>"+
@@ -32,8 +32,11 @@ const loadUsers = async () => {
         <button onClick="deleteUser('${users[i]["id"]}')" class='btn' id='delete'>
             <i class='fas fa-trash'></i>
         </button>
-        </td>`
+        </td></tr>`
     }
+    $(document).ready(function() {
+        $('#table').DataTable();
+    } );
 }
 
 const getInfoUser = async(id) => {
@@ -186,6 +189,7 @@ const setNewRoles = () => {
 if(window.location.href.match("manageuser")){
 loadUsers()
 }
+
 
 $(document).ready(() => {
     const btnClose =  document.getElementById('close')

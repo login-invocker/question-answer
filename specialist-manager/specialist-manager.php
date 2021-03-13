@@ -74,7 +74,6 @@
 
 <script src="../vendors/axios.min.js"></script>
 <script src="../vendors/vue.js"></script>
-<script src="../serviceAPI/specialist-service.js"></script>
 <script src="../serviceAPI/config/config.js"></script>
 
 <script src="./specialist-manager.js"></script>

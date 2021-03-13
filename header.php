@@ -15,10 +15,16 @@
       <div class="header__logo">
         <div class="header__nav--icon" id="mb">
           <i class="icofont-navigation-menu"></i>
-        </div>
-        <a href="index.php" class="header__link logo">logo</a>
+        </div> 
+        <a href="index.php" class="header__link logo navbar-brand">
+        
+          <img style="width: 100px;" src="assets/images/logo.png" wi alt="" srcset="">
+        </a>
+
         <div class="null" id="null"></div>
-        <div class="logo-mb"><a href="index.php">Logo</a></div>
+        <div class="logo-mb"><a href="index.php">
+          <img style="width: 200px;" src="assets/images/logo.png" wi alt="" srcset="">
+        </a></div>
         <div class="header__listpage" id="listpage-mb">
           <ul class="header__list">
             <li class="header__item">
@@ -62,9 +68,9 @@
             <a class="header__link" href="index.php">LOGO</a>
           </div>
           <div class="logg" id="logg">
-            <span><a href="login.php" class="header__link login"> Đăng nhập</a></span>
+            <span><a href="/login.php" class="header__link login"> Đăng nhập</a></span>
              | 
-            <span><a href="register.php" class="header__link login"> Đăng kí</a></span>
+            <span><a href="/register.php" class="header__link login"> Đăng kí</a></span>
           </div>
         </div>
         <div>

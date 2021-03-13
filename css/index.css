@@ -1,10 +1,10 @@
 @font-face {
-    src: url('../assets/fonts/proxima/Proxima\ Nova\ Black.otf');
+    src: url('assets/fonts/proxima/Proxima\ Nova\ Black.otf');
     font-family: 'Proxima';
   }
 #header {
     /* height: 100vh; */
-    background-image: url('https://www.doctors.net.uk/_resources/img/login.png');
+    background-image: url('../assets/images/index-pages-background.png');
     background-position: center;
     background-size: cover;
     padding-top: 23vh;

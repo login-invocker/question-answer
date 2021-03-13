@@ -1,8 +1,8 @@
 @font-face {
     src: url('../assets/fonts/Sansita/Sansita-Regular.ttf');
     font-family: 'Sansita';
-    /* src: url('../assets/fonts/Karla/Karla-VariableFont_wght.ttf');
-    font-family: 'Karla'; */
+    src: url('../assets/fonts/Karla/Karla-VariableFont_wght.ttf');
+    font-family: 'Karla';
 }
 body {
     padding: 7px;

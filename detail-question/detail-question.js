@@ -40,10 +40,13 @@ new Vue({
             })
 
              // comment
-            axios
-            .get('./comment.json', {id: question.id})
+            api
+            .post('/comment/findbyquestion', {"id": question.id})
             .then(resComment => {
-                this.comments = resComment.data
+
+              let comments = resComment.data
+
+              this.comments = comments              
             })
         })
 

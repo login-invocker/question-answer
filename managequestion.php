@@ -11,6 +11,8 @@ include('header.php');
     <link rel="stylesheet" href="./vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-
     hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+
 </head>
 <body>
     <br>
@@ -18,7 +20,7 @@ include('header.php');
         <h3>Manager Questions</h3>
     </div>
     <br>
-    <table class="table" style="margin: 0;">
+    <table id="table" class="display table" style="margin: 0;">
         <thead id="thedh">
             <th>No</th>
             <th>Content Question</th>
@@ -30,6 +32,16 @@ include('header.php');
         <tbody id="tbody">
            
         </tbody>
+        <tfoot>
+            <tr>
+            <th>No</th>
+            <th>Content Question</th>
+            <th>User Question</th>
+            <th>View</th>
+            <th>Status</th>
+            <th>Action</th>
+            </tr>
+        </tfoot>
     </table>
     <div class="card border-dark" id="card">
         <div class="card-header" id="card-header">
@@ -65,23 +77,19 @@ include('header.php');
     </div>
 
     <script>
-        let listQuestion = [
-            {
-                "id" : "q1",
-                "content" : "toi bị kho tiêu",
-                "idUser" : "user01",
-                "status" : "okeeeeeee",
-                "view" : 12,
-                "idSpeacialist": "speacialist001"
-            }
-        ];
+        let listQuestion = [];
         
         const getData = async () => {
             listQuestion = await getRawQuestion();
+            htmlContent()
+            
         }
         getData().then(() => {
-        htmlContent()
-    })
+            setTimeout(() => {
+                $('#table').DataTable();
+            }, 2000);
+            
+        })
 
     function htmlContent () {
         for (let i = 0 ; i < listQuestion.length ; i ++) {
@@ -96,14 +104,14 @@ include('header.php');
                         <td>${userQ? userQ.userName + " / " + userQ.userEmail: "Lỗi xảy ra khi lấy thông tin user"}</td>
                         <td>${listQuestion[i]['view']}</td>
                         <td>${listQuestion[i]['status']}</td>
-                        <td><button onClick="drawQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
+                        <td><button onClick="drawCardQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
                     </tr>
                     `
                 })
         }
     }
 
-    const drawQuestion = (idquestion) => {
+    const drawCardQuestion = (idquestion) => {
         document.getElementById("card"). style.display = "block"
         let content = listQuestion.filter(function(obj){
             return obj.id === idquestion
@@ -115,25 +123,21 @@ include('header.php');
                 <input type='text' id='idQuestion' class='' value='${content[0]["id"]}' autofocus>    
             </div>
             <div>
-                <label class='form-label' for='contentQuestion'> Content Question :</label>
-                <input type='text' id='contentQuestion' class='' value='${content[0]["content"]}'>    
-            </div>
-            <div>
                 <label class='form-label' for='idUser'> User Question :</label>
                 <input type='text' id='idUser' class='' value='Name user'>    
             </div>
             <div>
                 <label class='form-label' for='idSpeacialist'> Speacialist :</label>
-                <input type='text' value='${content[0]['idSpeacialist']}' id='idSpeacialist'>
+                <input type='text' value='${content[0]['idSpecialist']}' id='idSpecialist'>
             </div>
             <div>
                 <label class='form-label' for='status'> Status :</label>
                 <div class="d-flex justify-content-between">
-                    <input type="radio" id="male" class="status" ${content[0].status === 'APPROVED'? 'checked': ''} name="status" value="APPROVED">
+                    <input type="radio" id="male" class="status" ${content[0].status === 'APPROVED'? 'checked': ''} name="status[]" value="APPROVED">
                     <label for="male">APPROVED</label><br>
-                    <input type="radio" id="female" name="status" class="status" ${content[0].status === 'UNAPPROVED'? 'checked': ''}  value="UNAPPROVED">
+                    <input type="radio" id="female" name="status[]" class="status" ${content[0].status === 'UNAPPROVED'? 'checked': ''}  value="UNAPPROVED">
                     <label for="female">UNAPPROVED</label><br>
-                    <input type="radio" id="other" name="status" class="status" ${content[0].status === 'DONE'? 'checked': ''}  value="DONE">
+                    <input type="radio" id="other" name="status[]" class="status" ${content[0].status === 'DONE'? 'checked': ''}  value="DONE">
                     <label for="other">DONE</label> 
                 </div>
                  
@@ -153,25 +157,20 @@ include('header.php');
         `
         }
 
-        const update = (idq) => {
-                    
-            var newinfo = {
-                    "id" : document.getElementById('idQuestion').value,
-                    "content" : document.getElementById('contentQuestion').value,
-                    // "idUser" : document.getElementById('idUser').value,
-                    "status" : document.getElementById('status').value,
-                    "view" : document.getElementById('view').value,
-                    "idSpeacialist": document.getElementById('idSpeacialist').value
+        const update = async (id_q) => {
+            const status = $('input[name="status[]"]:checked').attr('value')
+
+            const newQuestion = {
+                    "id" : id_q,
+                    "status" : status,
+                    "idSpecialist": $("#idSpecialist").val()
                 }
-                for(j = 0 ; j < listQuestion.length ; j ++) {
-                    if(listQuestion[j]['id'] === idq) {
-                        listQuestion[j] = newinfo
-                    }
-                }
+
+            await updateQuestion(newQuestion)
                 
             document.getElementById('card').style.display = 'none'
             document.getElementById('tbody').innerHTML = ''
-            htmlContent()
+            getData()
         }
         
         const delQuestion = (idQuestion) => {
