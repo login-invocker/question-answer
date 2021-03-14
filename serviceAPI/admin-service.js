@@ -7,9 +7,8 @@ const Roles = [
 
 const getUsersApi =  async () =>{
     const token = getCookie("tokenId")
-    setCookie('JSESSIONID','BDB087DB1A6F7B3DF879DCBA955225D3', 7)
+
     const users = await api({
-        
         method: 'get',
         url: "/admin/quantri/listuser",
         data: '',
@@ -132,31 +131,32 @@ const updateInfo = async (iduser) => {
         return user !== undefined;
     });
     const newUserInfo = {
-            "id": iduser,
-            "userName":document.getElementById('username').value,
-            "fullName": document.getElementById('fullname').value,
-            "userPass": document.getElementById('pass').value,
-            "userEmail": document.getElementById('email').value,
-            "cellPhone": document.getElementById('cellphone').value,
-            "dateOfBirth": document.getElementById('dateofbirth').value,
-            "sex": document.getElementById('sex').value,
-            "role": setNewRoles()
-        }
+        "id": iduser,
+        "userName":document.getElementById('username').value,
+        "fullName": document.getElementById('fullname').value,
+        "userPass": document.getElementById('pass').value,
+        "userEmail": document.getElementById('email').value,
+        "cellPhone": document.getElementById('cellphone').value,
+        "dateOfBirth": document.getElementById('dateofbirth').value,
+        "sex": document.getElementById('sex').value,
+        "role": setNewRoles()
+    }
 
+    newUserInfo.dateOfBirth = newUserInfo.dateOfBirth 
+    ? standardTimeConvert(newUserInfo.dateOfBirth)
+    : standardTimeConvert(new Date())
+    const token = getCookie("tokenId")
 
-        newUserInfo.dateOfBirth = standardTimeConvert(newUserInfo.dateOfBirth)
-        const token = getCookie("tokenId")
+    const response = await api({
 
-        const response = await api({
-
-        method: 'put',
-        url: "/admin/quantri/updateuser",
-        data: newUserInfo,
-        headers: { 
-            "token-id": `Bearer ${token}`, 
-            'Content-Type': 'application/json', 
-            },
-    });
+    method: 'put',
+    url: "/admin/quantri/updateuser",
+    data: newUserInfo,
+    headers: { 
+        "token-id": `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
+    },
+});
     if(response.status === 200) {
         alert("Update Success")
         location.reload();

@@ -70,7 +70,7 @@ const login = async () => {
         }
     
     } catch (error) {
-        console.log(error)
+
         $.notify("Đăng nhập thất bại!", "error");
         $("#loginFalse").html("Sai tên tài khoản hoặc mật khẩu")
     }
@@ -135,7 +135,10 @@ const deleteUserById = async (id) => {
         method: 'delete',
         url: `/user/deleteUser`,
         data: {"id": id},
-        headers
+        headers: { 
+            "token-id": `Bearer ${token}`, 
+            'Content-Type': 'application/json', 
+            },
     });
     return responseData.data
 }

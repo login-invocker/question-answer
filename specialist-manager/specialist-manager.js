@@ -18,9 +18,7 @@ var specialistManager = new Vue({
             method: 'get',
             url: "/specialist/list",
             data: {},
-            headers: {
-                'Content-Type': 'application/json',
-            }
+            headers
         }).then(specialists => {
             this.specialists = specialists.data
         })
@@ -48,7 +46,6 @@ var specialistManager = new Vue({
             }
         
             const { data } = api({
-
                 method: 'post',
                 url: "/specialist/addspecialist",
                 data: reqData,
@@ -61,7 +58,6 @@ var specialistManager = new Vue({
         },
         removeSpecialist: function(){
             api({
-
                 method: 'delete',
                 url: "/specialist/remove",
                 data: {"id": this.specialist.id},
@@ -76,7 +72,6 @@ var specialistManager = new Vue({
             const nameSpecialist = document.getElementById('name-specialist').value
               const speacialist = {"id": this.specialist.id, "name": nameSpecialist}
                 api({
-
                 method: 'put',
                 url: "/specialist",
                 data: speacialist,

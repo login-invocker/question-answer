@@ -48,7 +48,10 @@ const getRawQuestion = async () => {
       method: 'get',
       url: "/question/list",
       data: {},
-      headers
+      headers: { 
+        "token-id": `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
+        },
     });
     const question = res.data;
     return question;
@@ -88,7 +91,10 @@ const updateQuestion = async (question) => {
       method: 'put',
       url: "/question/updateQuestion",
       data: req,
-      headers
+      headers: { 
+        "token-id": `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
+        },
     });
     $.notify("update Câu hỏi thành công", "success");
   } catch (e) {
@@ -110,7 +116,10 @@ const deleteQuestion = async (id) => {
       method: 'delete',
       url: "question/deleteQuestion",
       data: req,
-      headers
+      headers: { 
+        "token-id": `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
+        },
     });
     return true
   }catch{
