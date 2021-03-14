@@ -7,6 +7,7 @@ const getCommentByQuestion = async () => {
 const addComment = async (idQuestion, id, idResponse) => {
   const contentAnswer = document.getElementById(`text-answer${id}`).value;
   const idUser = getCookie('idU')
+  const token = getCookie("tokenId")
 
   try {
     const req = {
@@ -16,10 +17,14 @@ const addComment = async (idQuestion, id, idResponse) => {
       "idUser": idUser,
     }
     const { data } = await api({
+
       method: 'post',
       url: "comment/addcomment",
       data: req,
-      headers
+      headers: { 
+        "token-id": `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
+        },
     });
     $.notify("Gửi câu trả lời thành công.", "success");
     document.getElementById("show" + `${id}`).style.display = "none";
@@ -32,15 +37,21 @@ const addComment = async (idQuestion, id, idResponse) => {
 // api find One Comment
 
 const findOneComment = async (idQuestion) => {
+  const token = getCookie("tokenId")
+
   try {
     const req = {
       "idQuestion": idQuestion,
     }
     const { data } = await api({
+
       method: 'post',
       url: "comment/comment",
       data: req,
-      headers
+      headers: { 
+        "token-id": `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
+        },
     });
   } catch (e) {
     console.error(e);
@@ -50,6 +61,8 @@ const findOneComment = async (idQuestion) => {
 // api update one Comment
 
 const updateComment = async (content, idUser, idUserResponse, likes) => {
+  const token = getCookie("tokenId")
+
   try {
     const req = {
       "content": `${content}`,
@@ -61,10 +74,14 @@ const updateComment = async (content, idUser, idUserResponse, likes) => {
 
 
     const { data } = await api({
+
       method: 'put',
       url: "/comment/updatecomment",
       data: req,
-      headers
+      headers: { 
+        "token-id": `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
+        },
     });
   } catch (e) {
     console.error(e);
@@ -74,15 +91,21 @@ const updateComment = async (content, idUser, idUserResponse, likes) => {
 // api delete Comment
 
 const deleteComment = async (idQuestion) => {
+  const token = getCookie("tokenId")
+
   try {
     const req = {
       "idQuestion": idQuestion,
     }
     const { data } = await api({
+
       method: 'post',
       url: "comment/deletecomment",
       data: req,
-      headers
+      headers: { 
+        "token-id": `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
+        },
     });
   } catch (e) {
     console.error(e);

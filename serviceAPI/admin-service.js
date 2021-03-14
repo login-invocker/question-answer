@@ -6,14 +6,21 @@ const Roles = [
 ]
 
 const getUsersApi =  async () =>{
+    const token = getCookie("tokenId")
+    setCookie('JSESSIONID','BDB087DB1A6F7B3DF879DCBA955225D3', 7)
     const users = await api({
+        
         method: 'get',
         url: "/admin/quantri/listuser",
-        data: {},
-        headers
+        data: '',
+        headers: { 
+            "token-id": `Bearer ${token}`, 
+            'Content-Type': 'application/json', 
+            },
     });
     return users.data
 }
+
 const loadUsers = async () => {
     const users = await getUsersApi();
     for ( i = 0 ; i < users.length ; i++) {
@@ -138,12 +145,17 @@ const updateInfo = async (iduser) => {
 
 
         newUserInfo.dateOfBirth = standardTimeConvert(newUserInfo.dateOfBirth)
+        const token = getCookie("tokenId")
 
         const response = await api({
+
         method: 'put',
         url: "/admin/quantri/updateuser",
         data: newUserInfo,
-        headers
+        headers: { 
+            "token-id": `Bearer ${token}`, 
+            'Content-Type': 'application/json', 
+            },
     });
     if(response.status === 200) {
         alert("Update Success")
@@ -152,13 +164,18 @@ const updateInfo = async (iduser) => {
     
 }
 const updateRoles = async(user)=> {
+    const token = getCookie("tokenId")
+
     const newRoles = setNewRoles()
     user.role = newRoles
     const response = await api({
         method: 'put',
         url: "/admin/quantri/updateuser",
         data: user,
-        headers
+        headers: { 
+            "token-id": `Bearer ${token}`, 
+            'Content-Type': 'application/json', 
+            },
     });
     if(response.status === 200) {
         alert("Update Success")

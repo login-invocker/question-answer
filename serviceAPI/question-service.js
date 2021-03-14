@@ -12,7 +12,7 @@ let headers = {
 }
 
 const addQuestion = async (content) => {
-
+  const token = getCookie("tokenId")
   const idUser = getCookie('idU')
   if (!idUser) return false
 
@@ -23,6 +23,7 @@ const addQuestion = async (content) => {
   }
 
   const { data } = await api({
+
     method: 'post',
     url: "/question/add-question",
     data: req,
@@ -39,8 +40,11 @@ const addQuestion = async (content) => {
 
 //  raw data question 
 const getRawQuestion = async () => {
+  const token = getCookie("tokenId")
+
   try {
     const res = await api({
+
       method: 'get',
       url: "/question/list",
       data: {},
@@ -55,8 +59,11 @@ const getRawQuestion = async () => {
 
 // api select one question
 const getOneQuestion = async (id) => {
+  const token = getCookie("tokenId")
+
   try {
     const res = await api({
+
       method: 'get',
       url: `/question/question?id=${id}`,
       data: {},
@@ -71,10 +78,13 @@ const getOneQuestion = async (id) => {
 
 // api update one question
 const updateQuestion = async (question) => {
+  const token = getCookie("tokenId")
+
   try {
     const req = question
 
     const { data } = await api({
+
       method: 'put',
       url: "/question/updateQuestion",
       data: req,
@@ -89,12 +99,14 @@ const updateQuestion = async (question) => {
 // api delete question
 
 const deleteQuestion = async (id) => {
+  const token = getCookie("tokenId")
 
   try{
     const req = {
       "id": id,
     }
     const { data } = await api({
+
       method: 'delete',
       url: "question/deleteQuestion",
       data: req,
@@ -110,12 +122,18 @@ const deleteQuestion = async (id) => {
 // api get Comment
 
 const getComment = async () => {
+  const token = getCookie("tokenId")
+
   try {
     const res = await api({
+
       method: 'get',
       url: "/comment/listcomment",
       data: {},
-      headers
+      headers: { 
+        "token-id": `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
+        },
     });
     const question = res.data;
 
@@ -128,8 +146,11 @@ const getComment = async () => {
 // api get Question
 
 const getQuestion = async (checkDoctor) => {
+  const token = getCookie("tokenId")
+
   try {
     const res = await api({
+
       method: 'get',
       url: "/question/list",
       data: {},
@@ -259,8 +280,11 @@ function checkCommented() {
 
 
 const findBySpecalist = async idSpecialist => {
+  const token = getCookie("tokenId")
+
   try {
     const res = await api({
+
       method: 'post',
       url: "/question/id_specialist",
       data: { "idSpecialist" : idSpecialist },

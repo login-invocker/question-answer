@@ -8,10 +8,13 @@ var specialistManager = new Vue({
         }
     },
     mounted() {
+        const token = getCookie("tokenId")
+
         const headers = {
             'Content-Type': 'application/json',
         }
         api({
+
             method: 'get',
             url: "/specialist/list",
             data: {},
@@ -45,6 +48,7 @@ var specialistManager = new Vue({
             }
         
             const { data } = api({
+
                 method: 'post',
                 url: "/specialist/addspecialist",
                 data: reqData,
@@ -57,6 +61,7 @@ var specialistManager = new Vue({
         },
         removeSpecialist: function(){
             api({
+
                 method: 'delete',
                 url: "/specialist/remove",
                 data: {"id": this.specialist.id},
@@ -71,6 +76,7 @@ var specialistManager = new Vue({
             const nameSpecialist = document.getElementById('name-specialist').value
               const speacialist = {"id": this.specialist.id, "name": nameSpecialist}
                 api({
+
                 method: 'put',
                 url: "/specialist",
                 data: speacialist,
@@ -90,6 +96,7 @@ var specialistManager = new Vue({
 
 //     const idSpeacialist = {"id": "600a6a524130db0ecc1bcdf7"}
 //     const { data } = await api({
+
 //         method: 'post',
 //         url: "/specialist",
 //         data: idSpeacialist,
