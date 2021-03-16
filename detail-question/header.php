@@ -157,6 +157,7 @@
   function logout(){
     setCookie('tokenId', '', -1);
     setCookie('roles', '', -1);
+    setCookie('idU', '', -1);
 
     window.location.replace("login.php");
   }

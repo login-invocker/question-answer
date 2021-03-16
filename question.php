@@ -39,7 +39,7 @@ include('header.php');
                                         <i class="far fa-images"></i>
                                         Đính kèm ảnh về tình trạng sức khỏe của bạn
                                     </label>
-                                    <!-- <input type="file" class="box-shadow form-control-file border" id="formFileMedia" > -->
+                                    <input type="file" class="box-shadow form-control-file border" id="formFileMedia" >
                                 </div>
                                 <div id="note" class="mb-3">* Hình ảnh cá nhân của bạn hoàn toàn được bảo mật, chỉ bác
                                     sĩ mới có thể xem.</div>
@@ -122,6 +122,8 @@ include('header.php');
                 setTimeout(() => {
                     window.location.replace("login.php");
                 }, 1000);
+            }else{
+            $('#question').val("")
             }
         }
     </script>

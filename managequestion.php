@@ -25,6 +25,7 @@ include('header.php');
             <th>No</th>
             <th>Content Question</th>
             <th>User Question</th>
+            <th>Image</th>
             <th>View</th>
             <th>Status</th>
             <th>Action</th>
@@ -37,6 +38,7 @@ include('header.php');
             <th>No</th>
             <th>Content Question</th>
             <th>User Question</th>
+            <th>Image</th>
             <th>View</th>
             <th>Status</th>
             <th>Action</th>
@@ -83,6 +85,15 @@ include('header.php');
             listQuestion = await getRawQuestion();
             htmlContent()
             
+            setTimeout(() => {
+
+                listQuestion.forEach((data) => {
+                    if(data.idImage){
+                        getImagesById(data.idImage)                     
+                    }
+                })
+            }, 4000);
+            
         }
         getData().then(() => {
             setTimeout(() => {
@@ -95,19 +106,22 @@ include('header.php');
         for (let i = 0 ; i < listQuestion.length ; i ++) {
             
             const idUser = listQuestion[i]["idUser"]
+  
             getUserByID(idUser).then( userQ => {
                 document.getElementById('tbody').innerHTML += 
+                `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${listQuestion[i]['content']}</td>
+                    <td><div id="${listQuestion[i].idImage?listQuestion[i].idImage: ""}" ></div></td>
+
+                    <td>${userQ? userQ.userName + " / " + userQ.userEmail: "Lỗi xảy ra khi lấy thông tin user"}</td>
+                    <td>${listQuestion[i]['view']}</td>
+                    <td>${listQuestion[i]['status']}</td>
+                    <td><button onClick="drawCardQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
+                </tr>
                     `
-                    <tr>
-                        <td>${i + 1}</td>
-                        <td>${listQuestion[i]['content']}</td>
-                        <td>${userQ? userQ.userName + " / " + userQ.userEmail: "Lỗi xảy ra khi lấy thông tin user"}</td>
-                        <td>${listQuestion[i]['view']}</td>
-                        <td>${listQuestion[i]['status']}</td>
-                        <td><button onClick="drawCardQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>
-                    </tr>
-                    `
-                })
+            })
         }
     }
 
@@ -199,6 +213,28 @@ include('header.php');
         document.getElementById('close').onclick = function() {
             document.getElementById('card').style.display = 'none'
         }
+
+        const getImagesById = async (id) => {
+            try{
+                const response = await api({
+                    method: 'get',
+                    url: `/image/id/${id}`,
+                    data: {},
+                    headers: {
+                    }
+                })   
+                const imageData = `data:image/png;base64,${response.data}`
+                
+                let image = new Image();
+                image.src = imageData;
+                document.getElementById(id).appendChild(image);
+                return imageData
+
+            }catch{
+                return false
+            }
+        }
+
     </script>
 </body>
 </html>

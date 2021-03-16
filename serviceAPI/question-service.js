@@ -11,15 +11,33 @@ let headers = {
   'Content-Type': 'application/json',
 }
 
+const sendImages = async () => {
+  let formData = new FormData();
+  const imagefile = document.querySelector('#formFileMedia');
+  formData.append("image", imagefile.files[0]);
+  const res = await api({
+      method: 'post',
+      url: "/image/addimage",
+      data: formData,
+      headers: {
+          'Content-Type': 'multipart/form-data'
+      }
+  })
+  return res.data
+}
+
 const addQuestion = async (content) => {
   const token = getCookie("tokenId")
   const idUser = getCookie('idU')
   if (!idUser) return false
+  
+  const resImages = await sendImages();
 
   const req = {
     "content": content,
     "idSpecialist": "0",
-    "idUser": idUser
+    "idUser": idUser,
+    "idImage": resImages.id
   }
 
   const { data } = await api({
@@ -29,7 +47,7 @@ const addQuestion = async (content) => {
     data: req,
     headers
   });
-  if (data) {
+  if (data && resImages.id) {
     $.notify("Gửi thành công câu hỏi của bạn đang chờ được kiểm duyệt.", "success");
     return true
   } else {

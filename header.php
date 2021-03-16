@@ -15,16 +15,15 @@
       <div class="header__logo">
         <div class="header__nav--icon" id="mb">
           <i class="icofont-navigation-menu"></i>
-        </div> 
-        <a href="index.php" class="header__link logo navbar-brand">
-        
+        </div>
+        <a href="index.php" class="header__link logo">
           <img style="width: 100px;" src="assets/images/logo.png" wi alt="" srcset="">
         </a>
 
         <div class="null" id="null"></div>
         <div class="logo-mb"><a href="index.php">
-          <img style="width: 200px;" src="assets/images/logo.png" wi alt="" srcset="">
-        </a></div>
+            <img style="width: 130px;" src="assets/images/logo.png" wi alt="" srcset="">
+          </a></div>
         <div class="header__listpage" id="listpage-mb">
           <ul class="header__list">
             <li class="header__item">
@@ -34,7 +33,10 @@
               <a href="listquestion.php" class="header__link header__page"> DANH SÁCH CÂU HỎI</a>
             </li>
             <li class="header__item">
-              <a href="#" class="header__link header__page"> GIỚI THIỆU</a>
+              <a href="#" class="header__link header__page"> QUẢN LÝ USER</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link header__page"> QUẢN LÝ CÂU HỎI</a>
             </li>
           </ul>
         </div>
@@ -42,21 +44,23 @@
 
       <div class="header__listpage" id="listpage">
         <ul class="header__list">
-        
-        <li class="header__item">
-            <a href="manageuser.php" class="header__link header__page"> QUẢN LÝ USER</a>
-          </li>
+
           <li class="header__item">
-            <a href="managequestion.php" class="header__link header__page"> QUẢN LÝ CÂU HỎI</a>
+            <a href="index.php" class="header__link header__page">TRANG CHỦ</a>
           </li>
+
           <li class="header__item">
             <a href="question.php" class="header__link header__page"> ĐẶT CÂU HỎI</a>
           </li>
           <li class="header__item">
             <a href="listquestion.php" class="header__link header__page"> DANH SÁCH CÂU HỎI</a>
           </li>
-          <li class="header__item">
-            <a href="#" class="header__link header__page"> GIỚI THIỆU</a>
+          <li class="header__item dropd">
+            <a href="#" class="header__link header__page drop-up"> GIỚI THIỆU</a>
+            <div class="drop">
+              <a href="manageuser.php" class="drop-link">QUẢN LÝ USER</a>
+              <a href="managequestion.php" class="drop-link">QUẢN LÝ CÂU HỎI</a>
+            </div>
           </li>
         </ul>
       </div>
@@ -65,11 +69,13 @@
 
         <div class="header__logg" id="logg-mb">
           <div class="header__logo--mb">
-            <a class="header__link" href="index.php">LOGO</a>
+            <a class="header__link" href="index.php">
+              <img style="width: 66px;" src="assets/images/logo.png" wi alt="" srcset="">
+            </a>
           </div>
           <div class="logg" id="logg">
             <span><a href="/login.php" class="header__link login"> Đăng nhập</a></span>
-             | 
+            |
             <span><a href="/register.php" class="header__link login"> Đăng kí</a></span>
           </div>
         </div>
@@ -161,7 +167,7 @@
     }
   }
 
-  function logout(){
+  function logout() {
     delete_cookie('tokenId');
     delete_cookie('roles');
 
@@ -170,9 +176,9 @@
 
 
   checkLogged();
-  
 </script>
 <?php
 require "importjs.php"
 ?>
+
 </html>

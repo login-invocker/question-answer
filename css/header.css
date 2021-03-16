@@ -23,7 +23,7 @@ header {
 }
 
 .header {
-  height: 75px;
+  height: 77px;
   width: 1110px;
   margin: 0 auto;
   display: flex;
@@ -226,6 +226,44 @@ ul li:not(:last-child) {
   border-right: none;
 }
 
+.drop {
+  position: absolute;
+  display: none;
+  background-color: #fff;
+  top: 75px;
+  box-shadow: -1px 10px 7px 0px #cec9c9;
+  z-index: 99;
+}
+
+.dropd:hover .drop {
+  display: block;
+}
+
+.dropd:hover .drop-up {
+  color: rgb(68, 123, 255);
+  background-color: #fff;
+}
+
+.drop-up  {
+  font-weight: bold;
+  background: #f72b3f;
+  color: #fff;
+}
+
+.drop-link {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: rgb(68, 123, 255);
+  font-size: 15px;
+}
+
+.drop-link:hover {
+  background-color:  rgb(68, 123, 255);
+  color: #ffffff;
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 1110px) {
   .header {
     width: 100%;
@@ -301,6 +339,7 @@ ul li:not(:last-child) {
   .header__logo--mb {
     height: 66px;
     display: block;
+    text-align: center;
   }
 
   .logg {
@@ -337,6 +376,10 @@ ul li:not(:last-child) {
 
   ul li {
     display: block;
+  }
+
+  .navbar-brand {
+    display: none;
   }
 
 }
