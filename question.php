@@ -124,6 +124,7 @@ include('header.php');
                 }, 1000);
             }else{
             $('#question').val("")
+            $('#formFileMedia').val("")
             }
         }
     </script>

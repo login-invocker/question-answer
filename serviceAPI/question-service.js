@@ -14,6 +14,14 @@ let headers = {
 const sendImages = async () => {
   let formData = new FormData();
   const imagefile = document.querySelector('#formFileMedia');
+  // check image
+  const file = imagefile.files[0];
+  const  fileType = file['type'];
+  const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
+  if (!validImageTypes.includes(fileType)) {
+      return false
+  }
+  
   formData.append("image", imagefile.files[0]);
   const res = await api({
       method: 'post',
@@ -32,7 +40,7 @@ const addQuestion = async (content) => {
   if (!idUser) return false
   
   const resImages = await sendImages();
-
+  if(!resImages) return $.notify("Có lỗi khi gửi ảnh hoặc sai tệp, xin thử lại lần sau!", "error");
   const req = {
     "content": content,
     "idSpecialist": "0",
