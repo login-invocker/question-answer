@@ -264,6 +264,10 @@ ul li:not(:last-child) {
   text-decoration: none;
 }
 
+ul li {
+  padding: 0;
+}
+
 @media only screen and (max-width: 1110px) {
   .header {
     width: 100%;

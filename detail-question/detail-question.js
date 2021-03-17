@@ -1,4 +1,5 @@
 const apiURLDoctorServer = `https://secret-plateau-56191.herokuapp.com`
+
 let api = axios.create({
         baseURL: apiURLDoctorServer
         
@@ -12,6 +13,33 @@ new Vue({
         comments: [],
         doman: "https://question-answer.invocker.repl.co",
         userQ: {}
+      }
+    },
+    methods: {
+      likeApi: function (id) {
+    const token = getCookie("tokenId")
+
+        api({
+          method: 'put',
+          url:'/comment/like',
+          data: {"id": id},
+          headers: { 
+            "token-id": `Bearer ${token}`, 
+            'Content-Type': 'application/json', 
+            }
+          })
+        .then(data => {
+          const resComment = data.data
+          if(resComment === "") return $.notify("Bạn cần đăng nhập để tương tác!", "error");
+          else {
+            let listComment = [...this.comments]
+            for(let i = 0; i < listComment.length; i++) {
+              if(listComment[i].id === resComment.id) listComment[i].likes = resComment.likes
+            }
+            return this.comments = listComment
+          }
+
+        })
       }
     },
     mounted () {
@@ -53,3 +81,18 @@ new Vue({
        
     }
   })
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }

@@ -55,8 +55,8 @@
           <li class="header__item">
             <a href="listquestion.php" class="header__link header__page"> DANH SÁCH CÂU HỎI</a>
           </li>
-          <li class="header__item dropd">
-            <a href="#" class="header__link header__page drop-up"> GIỚI THIỆU</a>
+          <li class="header__item dropd" id="dropd">
+            <a href="#" class="header__link header__page drop-up"> QUẢN LÝ</a>
             <div class="drop">
               <a href="manageuser.php" class="drop-link">QUẢN LÝ USER</a>
               <a href="managequestion.php" class="drop-link">QUẢN LÝ CÂU HỎI</a>
@@ -174,11 +174,22 @@
     window.location.replace("login.php");
   }
 
-
   checkLogged();
+
+  function checkAdmin() {
+    let data = getCookie("roles");
+    if (data.search("ADMIN") && data.search("DOCTER") == -1) {
+      document.getElementById("dropd").style.display = "none";
+    }
+  }
+
+  // checkAdmin();
+ 
 </script>
 <?php
 require "importjs.php"
 ?>
-
+<script>
+    checkAdmin();
+</script>
 </html>

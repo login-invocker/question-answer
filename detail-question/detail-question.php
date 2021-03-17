@@ -37,6 +37,14 @@ include('./header.php');
               <!-- <p class="answer__name">{{comment.user.full_name}}</p> -->
               <!-- <p class="answer__name">{{comment.user.specialist}}</p> -->
               <p id="answer" class="answer__text">{{comment.content}}</p>
+              <div class="feed-footer">
+              <a style="cursor: pointer;" v-on:click="likeApi(comment.id)" class="like">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+              </svg>
+                <span>{{comment.likes}}</span>
+              </a>
+            </div>
             </div>
           </div>
          
@@ -82,7 +90,9 @@ include('./header.php');
       </div>
   </div>
 </div>
-
+<script src="../vendors/jquery/jquery-2.2.4.min.js"></script>
 <script src="../vendors/axios.min.js"></script>
 <script src="../vendors/vue.js"></script>
+<script src="../vendors/notify.min.js"></script>
 <script src="./detail-question.js"></script>
+<script src="../serviceAPI/helper/helper.js"></script>
