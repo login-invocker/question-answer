@@ -60,6 +60,7 @@
             <div class="drop">
               <a href="manageuser.php" class="drop-link">QUẢN LÝ USER</a>
               <a href="managequestion.php" class="drop-link">QUẢN LÝ CÂU HỎI</a>
+              <a href="specialist-manager/specialist-manager.php" class="drop-link">QUẢN LÝ Danh mục khoa</a>
             </div>
           </li>
         </ul>
