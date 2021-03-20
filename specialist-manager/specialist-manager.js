@@ -86,19 +86,6 @@ var specialistManager = new Vue({
     } 
 })
 
-
-// const getOneSpecialist = async () => {
-
-//     const idSpeacialist = {"id": "600a6a524130db0ecc1bcdf7"}
-//     const { data } = await api({
-
-//         method: 'post',
-//         url: "/specialist",
-//         data: idSpeacialist,
-//         headers
-//     });
-//     console.log(data)
-// }
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');

@@ -54,7 +54,7 @@ const findOneComment = async (idQuestion) => {
         },
     });
   } catch (e) {
-    console.error(e);
+    // console.error(e);
   }
 }
 
@@ -84,7 +84,7 @@ const updateComment = async (content, idUser, idUserResponse, likes) => {
         },
     });
   } catch (e) {
-    console.error(e);
+    // console.error(e);
   }
 }
 
@@ -108,6 +108,6 @@ const deleteComment = async (idQuestion) => {
         },
     });
   } catch (e) {
-    console.error(e);
+    // console.error(e);
   }
 }

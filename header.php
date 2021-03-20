@@ -105,7 +105,7 @@
               <div class="arrow" id="arrow"></div>
               <ul class="header__option--list" id="list">
                 <li class="header__option--item"><i class="icofont-ui-user"></i> Trang cá nhân</li>
-                <li class="header__option--item"><i class="icofont-info-circle"></i> Thông tin cá nhân</li>
+                <a href="detail_user.php"><li class="header__option--item"><i class="icofont-info-circle"></i> Thông tin cá nhân</li></a>
                 <li class="header__option--item" onclick="logout()"><i class="icofont-logout"></i> Đăng xuất</li>
               </ul>
             </div>

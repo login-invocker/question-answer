@@ -82,7 +82,7 @@ const getRawQuestion = async () => {
     const question = res.data;
     return question;
   } catch (e) {
-    console.error(e);
+    // console.error(e);
   }
 };
 
@@ -174,7 +174,7 @@ const getComment = async () => {
 
     return question;
   } catch (e) {
-    console.error(e);
+    // console.error(e);
   }
 };
 
@@ -208,7 +208,7 @@ const getQuestion = async (checkDoctor) => {
     checkCommented();
     return questionMap;
   } catch (e) {
-    console.error(e);
+    // console.error(e);
   }
 };
 

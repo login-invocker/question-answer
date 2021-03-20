@@ -12,7 +12,7 @@ const getUsersApi =  async () =>{
         method: 'get',
         url: "/admin/quantri/listuser",
         data: '',
-        headers: { 
+        headers: {
             "token-id": `Bearer ${token}`, 
             'Content-Type': 'application/json', 
             },
