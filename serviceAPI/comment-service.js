@@ -5,12 +5,13 @@ const getCommentByQuestion = async () => {
 // api add comment
 
 const addComment = async (idQuestion, id, idResponse) => {
-  const contentAnswer = document.getElementById(`text-answer${id}`).value;
+  // id has content if is page detailquestion
+  const contentAnswer = document.getElementById(`text-answer${id}`).value || id;
   const idUser = getCookie('idU')
   const token = getCookie("tokenId")
 
   try {
-    const req = {
+    const reqData = {
       "content": contentAnswer,
       "idQuestion": idQuestion,
       "idUserResponse": idResponse,
@@ -20,17 +21,18 @@ const addComment = async (idQuestion, id, idResponse) => {
 
       method: 'post',
       url: "comment/addcomment",
-      data: req,
+      data: reqData,
       headers: { 
         "token-id": `Bearer ${token}`, 
         'Content-Type': 'application/json', 
         },
     });
+
     $.notify("Gửi câu trả lời thành công.", "success");
     document.getElementById("show" + `${id}`).style.display = "none";
 
   } catch (e) {
-    $.notify("Gửi câu trả Thất bại.", "error");
+    $.notify("Gửi câu trả lời Thất bại hoặc không thể gửi email cho người hỏi.", "error");
   }
 }
 

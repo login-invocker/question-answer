@@ -12,19 +12,21 @@ new Vue({
         question: {},
         comments: [],
         doman: "https://question-answer.invocker.repl.co",
-        userQ: {}
+        userQ: {},
+        isDoctor: getCookie("roles").includes("DOCTOR"),
+        token:  getCookie("tokenId")
       }
     },
     methods: {
       likeApi: function (id) {
-    const token = getCookie("tokenId")
 
+        
         api({
           method: 'put',
           url:'/comment/like',
           data: {"id": id},
           headers: { 
-            "token-id": `Bearer ${token}`, 
+            "token-id": `Bearer ${this.token}`, 
             'Content-Type': 'application/json', 
             }
           })
@@ -40,6 +42,34 @@ new Vue({
           }
 
         })
+      },
+      addRawComment: function() {
+          const reqData = {
+            "content": document.getElementById('content').value,
+            "idQuestion": this.question.id,
+            "idUserResponse": this.userQ.id,
+            "idUser": getCookie("idU"),
+          }
+
+          api({
+      
+            method: 'post',
+            url: "comment/addcomment",
+            data: reqData,
+            headers: { 
+              "token-id": `Bearer ${this.token}`, 
+              'Content-Type': 'application/json', 
+              },
+          }).then(data => {
+            let tmpComments = [...this.comments]
+            tmpComments.push(data.data)
+            this.comments = tmpComments
+            $.notify("Gửi câu trả lời thành công.", "success");
+          }).catch((e) =>{
+
+            $.notify("Gửi câu trả lời Thất bại hoặc không thể gửi email cho người hỏi.", "error");
+          })
+    
       }
     },
     mounted () {

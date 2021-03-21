@@ -14,15 +14,12 @@ let headers = {
 const sendImages = async () => {
   let formData = new FormData();
   const imagefile = document.querySelector('#formFileMedia');
-  // check image
-  const file = imagefile.files[0];
-  const  fileType = file['type'];
-  const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
-  if (!validImageTypes.includes(fileType)) {
-      return false
-  }
-  
+
+  if( document.getElementById("formFileMedia").files.length == 0 ){
+   return true
+}
   formData.append("image", imagefile.files[0]);
+  try{
   const res = await api({
       method: 'post',
       url: "/image/addimage",
@@ -32,6 +29,9 @@ const sendImages = async () => {
       }
   })
   return res.data
+  }catch{
+    return false
+  }
 }
 
 const addQuestion = async (content) => {
@@ -55,7 +55,8 @@ const addQuestion = async (content) => {
     data: req,
     headers
   });
-  if (data && resImages.id) {
+
+  if (data) {
     $.notify("Gửi thành công câu hỏi của bạn đang chờ được kiểm duyệt.", "success");
     return true
   } else {
@@ -180,7 +181,7 @@ const getComment = async () => {
 
 // api get Question
 
-const getQuestion = async (checkDoctor) => {
+const getQuestion = async () => {
   const token = getCookie("tokenId")
 
   try {
@@ -203,9 +204,6 @@ const getQuestion = async (checkDoctor) => {
         process_data(data);  
       }
     })
-
-    await checkDoctor();
-    checkCommented();
     return questionMap;
   } catch (e) {
     // console.error(e);
@@ -232,11 +230,14 @@ const detaiQuestion = async(id) => {
 
 // api get comment
 function process_data(data) {
+  const isDoctor = checkRoleCookie("DOCTOR");
 
   let sentences = document.getElementById('sentences');
   let i = 0;
   let showQuestions = ""
   data.forEach(question => {
+    const answer = isDoctor?`<button class="action__btn--item btn-mid" onclick="answer(${i})" id="btn-mid"><i
+    class="icofont-speech-comments"></i>Trả lời</button>`: ''
     showQuestions += `
     <div class="sentence">
   <div class="question">
@@ -258,8 +259,7 @@ function process_data(data) {
     <div class="action__btn">
 
       <button class="action__btn--item" id="btn-love"><i class="icofont-love"></i> Yêu thích</button>
-      <button class="action__btn--item btn-mid" onclick="answer(${i})" id="btn-mid"><i
-          class="icofont-speech-comments"></i>Trả lời</button>
+      `+answer+`
 
       <button class="action__btn--item"><i class="icofont-share"></i>
 
@@ -284,15 +284,6 @@ function process_data(data) {
     </button>
   </div>
 
-  <div class="answer">
-    <div class="answer__container" id="answer__container${i}">
-      <img src="assets/images/register.jpg" alt="anhbacsi" class="answer__img">
-    </div>
-    <div class="answer_info">
-      <p class="answer__name">Bac si ka</p>
-      <p id="answer" class="answer__text">${getOneComment(question.id)}</p>
-    </div>
-  </div>
 </div>
       `;
     i++;
@@ -300,19 +291,6 @@ function process_data(data) {
   // inner html
   sentences.innerHTML = showQuestions 
 }
-
-function checkCommented() {
-  let text = document.getElementsByClassName("answer__text");
-  let answer = document.getElementsByClassName("answer");
-  let i;
-
-  for (i = 0; i < answer.length; i++) {
-    if (text[i].textContent == "") {
-      answer[i].style.display = "none";
-    }
-  }
-}
-
 
 const findBySpecalist = async idSpecialist => {
   const token = getCookie("tokenId")

@@ -111,11 +111,10 @@ include('header.php');
                 document.getElementById('tbody').innerHTML += 
                 `
                 <tr>
-                    <td>${i + 1}</td>
+                    <td><a href="/detail-question/detail-question.php?id=${listQuestion[i].id}">${i + 1}</a></td>
                     <td>${listQuestion[i]['content']}</td>
-                    <td><div id="${listQuestion[i].idImage?listQuestion[i].idImage: ""}" ></div></td>
-
                     <td>${userQ? userQ.userName + " / " + userQ.userEmail: "Lỗi xảy ra khi lấy thông tin user"}</td>
+                    <td><div id="${listQuestion[i].idImage?listQuestion[i].idImage: ""}" ></div></td>
                     <td>${listQuestion[i]['view']}</td>
                     <td>${listQuestion[i]['status']}</td>
                     <td><button onClick="drawCardQuestion('${listQuestion[i]["id"]}')"><i class="fas fa-eye"></i></button></td>

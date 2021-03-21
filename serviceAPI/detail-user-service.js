@@ -31,7 +31,7 @@ const updateUser = async () => {
         url: "/admin/quantri/updateuser",
         data: user,
     })
-    console.log(response)
+
     if(response.status === 200) {
         $.notify("Update thành công!", "success");
         // location.reload();

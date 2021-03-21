@@ -39,19 +39,7 @@ include('header.php');
     document.getElementById("show" + `${id}`).style.display = "block";
   }
 
-  getQuestion(checkDoctor);
-
-  function checkDoctor() {
-    let btn = document.getElementsByClassName("action__btn").length;
-    let btnMid = document.getElementsByClassName("btn-mid");
-    const isDocter = checkRoleCookie("DOCTOR");
-
-    if (!isDocter) {
-      for (let i = 0; i < btn; i++) {
-        btnMid[i].style.display = "none";
-      }
-    }
-  }
+  getQuestion();
 </script>
 
 <script src="./vendors/vue.js"></script>
