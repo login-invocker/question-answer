@@ -98,7 +98,7 @@
                 <img src="assets/images/register2.jpg" alt="anh user" class="header__img" style="width: 35px; height: 35px;">
               </div>
               <span class="header__username">
-                user123 <i class="icofont-hand-drawn-down"></i>
+                <span id="userName"></span> <i class="icofont-hand-drawn-down"></i>
               </span>
             </div>
             <div class="header__option">
@@ -171,6 +171,8 @@
   function logout() {
     delete_cookie('tokenId');
     delete_cookie('roles');
+    delete_cookie('userName')
+    delete_cookie('idU');
 
     window.location.replace("login.php");
   }
@@ -191,6 +193,13 @@
 require "importjs.php"
 ?>
 <script>
-    checkAdmin();
+    $(document).ready(function () {
+      const userName = getCookie("userName")
+      $("#userName").html(userName)
+
+      
+      checkAdmin();
+
+    });
 </script>
 </html>

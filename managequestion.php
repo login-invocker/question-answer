@@ -88,7 +88,7 @@ include('header.php');
         getData().then(() => {
             setTimeout(() => {
                 $('#table').DataTable();
-            }, 4000);
+            }, 7000);
             
         })
 

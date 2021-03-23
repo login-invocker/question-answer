@@ -62,6 +62,7 @@ const login = async () => {
             setCookie("tokenId", userInfo.tokenId, 7)
             setCookie("roles", userInfo.role,7)
             setCookie("idU", userInfo.id,7)
+            setCookie("userName", dataUser.userName,7)
 
             $.notify("Đăng nhập thành công.", "success");
             setTimeout(()=> {
