@@ -1,7 +1,3 @@
-const getCommentByQuestion = async () => {
-
-}
-
 // api add comment
 
 const addComment = async (idQuestion, id, idResponse) => {

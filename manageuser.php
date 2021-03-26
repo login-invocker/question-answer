@@ -55,4 +55,5 @@ include('header.php');
             </div>
         </div>
     </div>
+    <script src="./serviceAPI/admin-service.js"></script>
 </body>

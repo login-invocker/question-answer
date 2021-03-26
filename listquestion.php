@@ -44,5 +44,6 @@ include('header.php');
 
 <script src="./vendors/vue.js"></script>
 <script src="./specialist-manager/specialist-manager.js"></script>
+<script src="./serviceAPI/comment-service.js"></script>
 
 </html>
